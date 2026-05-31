@@ -1,524 +1,965 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>For Junior 🌷</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+<title>For Junior</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Great+Vibes&family=Cinzel:wght@400;500;600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet"/>
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html,body{width:100%;height:100%;overflow:hidden;background:#06080f;font-family:'Cormorant Garamond',serif;color:#fff;}
-body{cursor:none;}
-#cur{position:fixed;width:14px;height:14px;border:1px solid rgba(255,220,240,0.5);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
-#cdot{position:fixed;width:3px;height:3px;background:rgba(255,200,230,0.9);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
-#stars{position:fixed;inset:0;pointer-events:none;z-index:0;}
-
-.pg{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;transition:opacity .8s ease,transform .8s ease;}
-.pg.gone{opacity:0;pointer-events:none;transform:translateY(-18px);}
-
-/* PAGE 1 */
-#p1 .inner{display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;padding:40px 24px;}
-.tulip-row{display:flex;gap:14px;align-items:flex-end;justify-content:center;opacity:0;animation:riseUp 1.6s ease .1s forwards;}
-.big-name{font-family:'Great Vibes',cursive;font-size:clamp(64px,13vw,148px);color:#fff;line-height:1;opacity:0;animation:riseUp 1.4s ease .45s forwards;text-shadow:0 0 60px rgba(255,180,220,0.15);}
-.tagline{font-size:clamp(11px,1.4vw,13px);letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,0.28);opacity:0;animation:riseUp 1.2s ease .8s forwards;}
-.reveal-btn{font-family:'Cinzel',serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.85);background:transparent;border:1px solid rgba(255,255,255,0.22);padding:16px 56px;cursor:pointer;transition:all .4s;opacity:0;animation:riseUp 1.2s ease 1.1s forwards;}
-.reveal-btn:hover{border-color:rgba(255,180,220,0.55);letter-spacing:8px;color:#ffd6ec;}
-.made-with{font-style:italic;font-size:13px;color:rgba(255,255,255,0.18);opacity:0;animation:riseUp 1.2s ease 1.4s forwards;}
-
-/* PAGE 2 */
-#p2{overflow-y:auto;overflow-x:hidden;align-items:stretch;justify-content:flex-start;}
-#p2 .scroll-inner{display:flex;flex-direction:column;align-items:center;min-height:100%;padding:44px 24px 80px;}
-.sec-eyebrow{font-size:11px;letter-spacing:9px;text-transform:uppercase;color:rgba(255,255,255,0.22);opacity:0;animation:riseUp 1s ease .1s forwards;}
-.sec-h1{font-family:'Great Vibes',cursive;font-size:clamp(44px,8vw,84px);color:#fff;text-align:center;line-height:.95;opacity:0;animation:riseUp 1s ease .25s forwards;}
-.divider-line{width:1px;height:28px;background:linear-gradient(180deg,transparent,rgba(255,180,220,0.18),transparent);margin:14px auto;}
-.cd-date{font-size:10px;letter-spacing:7px;color:rgba(255,255,255,0.18);opacity:0;animation:riseUp 1s ease .3s forwards;margin-bottom:4px;}
-.countdown-wrap{display:flex;align-items:center;gap:10px;opacity:0;animation:riseUp 1s ease .4s forwards;}
-.t-box{display:flex;flex-direction:column;align-items:center;gap:3px;}
-.t-num{font-family:'Cinzel',serif;font-size:clamp(22px,4vw,32px);font-weight:600;color:rgba(255,200,230,0.75);line-height:1;min-width:52px;text-align:center;}
-.t-label{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.18);}
-.t-colon{font-family:'Cinzel',serif;font-size:clamp(14px,2.5vw,22px);font-weight:600;color:rgba(255,180,220,0.22);padding-bottom:12px;animation:blink 1.2s ease infinite;}
-
-/* CAKE SECTION */
-.cake-section{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:20px;opacity:0;animation:riseUp 1.2s ease .55s forwards;}
-.cake-label{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:rgba(255,255,255,0.16);}
-.blow-hint{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.2);}
-.blow-hint.locked-msg{color:rgba(255,255,255,0.13);}
-.btn-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px;}
-.cbtn{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,180,220,0.55);background:transparent;border:0.5px solid rgba(255,180,220,0.2);padding:11px 26px;cursor:pointer;transition:all .3s;}
-.cbtn:hover{color:#ffd6ec;border-color:rgba(255,180,220,0.5);}
-.cbtn:active{transform:scale(.97);}
-.cbtn:disabled{opacity:.12;pointer-events:none;}
-#wish-txt{font-style:italic;font-size:clamp(13px,1.6vw,15px);color:rgba(255,180,220,0.4);min-height:20px;transition:opacity .4s;text-align:center;max-width:340px;}
-
-/* PAGE 3 */
-#p3{overflow-y:auto;overflow-x:hidden;align-items:stretch;justify-content:flex-start;}
-#p3 .scroll-inner{display:flex;flex-direction:column;align-items:center;min-height:100%;padding:60px 24px 100px;}
-.bday-eyebrow{font-size:11px;letter-spacing:9px;text-transform:uppercase;color:rgba(255,200,230,0.3);}
-.bday-h1{font-family:'Great Vibes',cursive;font-size:clamp(80px,15vw,178px);color:#fff;line-height:.88;text-shadow:0 0 80px rgba(255,180,220,0.16);}
-.bday-h2{font-family:'Great Vibes',cursive;font-size:clamp(38px,7vw,86px);color:rgba(255,255,255,0.72);}
-.bday-msg{font-style:italic;font-weight:300;font-size:clamp(14px,1.8vw,18px);color:rgba(255,255,255,0.35);max-width:400px;line-height:2;text-align:center;margin-top:6px;}
-.poems-section{width:100%;max-width:640px;margin-top:52px;display:flex;flex-direction:column;gap:48px;align-items:center;}
-.poem-block{text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;}
-.poem-icon{font-size:22px;opacity:.45;}
-.poem-title{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.28);}
-.poem-divider{width:22px;height:0.5px;background:rgba(255,180,220,0.18);}
-.poem-text{font-style:italic;font-weight:300;font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.4);line-height:2.1;white-space:pre-line;}
-.final-poem{margin-top:64px;text-align:center;max-width:500px;border-top:0.5px solid rgba(255,180,220,0.08);padding-top:56px;}
-.final-poem .poem-text{font-size:clamp(14px,1.9vw,17px);color:rgba(255,255,255,0.28);}
-.stamp{font-family:'Cinzel',serif;font-size:10px;letter-spacing:7px;color:rgba(255,255,255,0.12);text-transform:uppercase;margin-top:20px;}
-.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:32px;opacity:0;transition:opacity 1s;}
-.scroll-cue span{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.14);}
-.sarrow{width:1px;height:32px;background:linear-gradient(180deg,rgba(255,200,230,0.28),transparent);animation:pulse 2.2s ease infinite;}
-
-/* ANIMATIONS */
-.flicker{transform-origin:center bottom;animation:flicker 1.6s ease-in-out infinite;}
-@keyframes riseUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-@keyframes blink{0%,100%{opacity:.12;}50%{opacity:.5;}}
-@keyframes starT{0%,100%{opacity:.5;}50%{opacity:.05;}}
-@keyframes flicker{
-  0%  {transform:scaleX(1)    scaleY(1)    rotate(-1.5deg);}
-  20% {transform:scaleX(.83)  scaleY(1.13) rotate(2.5deg);}
-  40% {transform:scaleX(1.07) scaleY(.91)  rotate(-2deg);}
-  60% {transform:scaleX(.89)  scaleY(1.17) rotate(2deg);}
-  80% {transform:scaleX(1.04) scaleY(.95)  rotate(-1deg);}
-  100%{transform:scaleX(1)    scaleY(1)    rotate(-1.5deg);}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: linear-gradient(135deg, #0a0a12 0%, #1a1520 50%, #0a0812 100%);
+  color: #fff;
+  overflow-x: hidden;
+  min-height: 100vh;
+  cursor: none;
 }
-@keyframes pulse{0%,100%{opacity:.22;}50%{opacity:.9;}}
-@keyframes sparkPop{0%{transform:scale(0) rotate(0deg);opacity:1;}100%{transform:scale(2.4) rotate(360deg);opacity:0;}}
-@keyframes glowPulse{
-  0%,100%{filter:drop-shadow(0 0 12px rgba(255,160,180,.32)) drop-shadow(0 0 32px rgba(255,100,130,.12));}
-  50%{filter:drop-shadow(0 0 24px rgba(255,200,220,.55)) drop-shadow(0 0 60px rgba(255,120,150,.22));}
+.page {
+  position: fixed; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 10;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  overflow-y: auto; padding: 40px 24px;
 }
-.cake-glow{animation:glowPulse 2.4s ease-in-out infinite;}
-.spk{position:fixed;pointer-events:none;z-index:500;animation:sparkPop 1.3s ease forwards;}
+.page.hidden { opacity: 0; pointer-events: none; transform: translateY(-20px); }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%  { transform: translateY(-15px) rotate(3deg); }
+  66%  { transform: translateY(-8px)  rotate(-2deg); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes floatUp {
+  0%   { transform: translateY(0) translateX(0px);   opacity: 0; }
+  8%   { opacity: 0.65; }
+  50%  { transform: translateY(-50vh) translateX(18px); opacity: 0.5; }
+  92%  { opacity: 0.3; }
+  100% { transform: translateY(-115vh) translateX(-10px); opacity: 0; }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.1); }
+}
+@keyframes glow-pulse {
+  0%, 100% { filter: drop-shadow(0 0 20px rgba(255,200,220,0.4)); }
+  50%       { filter: drop-shadow(0 0 40px rgba(255,200,220,0.7)); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14%  { transform: scale(1.15); }
+  28%  { transform: scale(1); }
+  42%  { transform: scale(1.15); }
+  70%  { transform: scale(1); }
+}
+@keyframes sparkle {
+  0%   { transform: scale(0) rotate(0deg);   opacity: 1; }
+  50%  { transform: scale(1) rotate(180deg); opacity: 0.8; }
+  100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1)   scaleX(1);    opacity: 1; }
+  20%       { transform: scaleY(1.3) scaleX(0.85); opacity: 0.95; }
+  40%       { transform: scaleY(0.9) scaleX(1.1);  opacity: 1; }
+  60%       { transform: scaleY(1.2) scaleX(0.9);  opacity: 0.9; }
+  80%       { transform: scaleY(1.05) scaleX(1.05);opacity: 1; }
+}
+@keyframes candle-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(255,200,100,0.6)) drop-shadow(0 0 20px rgba(255,150,50,0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(255,220,120,0.9)) drop-shadow(0 0 35px rgba(255,170,60,0.6));
+  }
+}
+@keyframes smoke-rise {
+  0%   { transform: translateY(0) scale(1);   opacity: 0.6; }
+  100% { transform: translateY(-44px) scale(1.6); opacity: 0; }
+}
+
+/* ── Lock overlay shimmer ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes lock-float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-8px) scale(1.04); }
+}
+@keyframes countdown-pulse {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+@keyframes stars-twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%       { opacity: 0.9; transform: scale(1.2); }
+}
+@keyframes unlock-burst {
+  0%   { transform: scale(0.8); opacity: 0; }
+  50%  { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+
+.btn-vintage {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,220,240,0.3);
+  background: rgba(255,220,240,0.08);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  cursor: none;
+  padding: 16px 48px;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.85rem;
+}
+.btn-vintage:hover {
+  border-color: rgba(255,200,220,0.6);
+  background: rgba(255,200,220,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255,150,180,0.2);
+  letter-spacing: 0.25em;
+}
+.btn-vintage.small { padding: 12px 32px; font-size: 0.75rem; margin: 8px; }
+
+#stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.star  { position: absolute; background: white; border-radius: 50%; animation: pulse-soft 4s ease-in-out infinite; }
+
+#floating-elements { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+.floating-item {
+  position: absolute;
+  animation: floatUp 18s ease-in-out infinite;
+}
+
+#cursor {
+  position: fixed; width: 16px; height: 16px;
+  border: 1px solid rgba(255,255,255,0.5); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%); transition: transform 0.1s ease;
+}
+#cursor-dot {
+  position: fixed; width: 4px; height: 4px;
+  background: rgba(255,255,255,0.8); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+}
+
+.nav-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,0.2); border: none;
+  cursor: none; transition: all 0.3s ease; padding: 0;
+}
+.nav-dot.active { background: rgba(255,200,220,0.8); transform: scale(1.3); }
+.nav-dot:hover  { background: rgba(255,200,220,0.5); }
+
+.hours-display {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(5rem, 18vw, 11rem);
+  font-weight: 600;
+  color: rgba(255,200,230,0.8);
+  line-height: 1;
+  text-shadow: 0 0 60px rgba(255,150,180,0.3);
+}
+.hours-sub {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.7rem, 2vw, 1rem);
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-top: 12px;
+}
+
+.smoke-particle {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: radial-gradient(circle, rgba(200,200,200,0.6) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: smoke-rise 1.5s ease-out forwards;
+}
+.spark-particle {
+  position: absolute;
+  width: 4px; height: 4px;
+  background: radial-gradient(circle, #ffd700 0%, #ff8c00 50%, transparent 100%);
+  border-radius: 50%;
+  animation: sparkle 0.9s ease-out forwards;
+}
+
+.parchment-wrap { position: relative; max-width: 520px; margin: 0 auto; }
+.parchment {
+  background: linear-gradient(160deg, #f5e8c8 0%, #eddbb0 35%, #e2ca94 70%, #d6bc80 100%);
+  border: 1px solid rgba(139,105,20,0.5);
+  box-shadow: 0 6px 32px rgba(0,0,0,0.55), inset 0 0 60px rgba(139,90,0,0.12), inset 0 0 10px rgba(0,0,0,0.06);
+  padding: 52px 48px 44px;
+  position: relative;
+  color: #2e1f0a;
+}
+.parchment::before {
+  content: '';
+  position: absolute; inset: -3px;
+  border: 2px dashed rgba(139,90,20,0.2);
+  pointer-events: none;
+}
+.parchment-title {
+  font-family: 'IM Fell English', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: #5a3a10; text-align: center;
+  margin-bottom: 28px; letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(139,90,20,0.3);
+  padding-bottom: 20px;
+}
+.parchment-poem {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: #3a2810; line-height: 2; text-align: center;
+}
+.parchment-stanza { margin-bottom: 1.6rem; }
+.parchment-seal {
+  text-align: center; margin-top: 24px;
+  padding-top: 20px; border-top: 1px solid rgba(139,90,20,0.3);
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.4rem; color: #7a4a10;
+}
+.parchment-corner {
+  position: absolute; width: 20px; height: 20px;
+  border-color: rgba(139,90,20,0.4); border-style: solid;
+}
+.parchment-corner.tl { top: 10px; left: 10px;   border-width: 2px 0 0 2px; }
+.parchment-corner.tr { top: 10px; right: 10px;  border-width: 2px 2px 0 0; }
+.parchment-corner.bl { bottom: 10px; left: 10px;  border-width: 0 0 2px 2px; }
+.parchment-corner.br { bottom: 10px; right: 10px; border-width: 0 2px 2px 0; }
+
+/* ══════════════════════════
+   LOCK OVERLAY STYLES
+══════════════════════════ */
+.locked-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(18px) saturate(0.4) brightness(0.55);
+  background: radial-gradient(ellipse at center,
+    rgba(10,8,20,0.75) 0%,
+    rgba(5,4,15,0.88) 100%);
+  border-radius: 0;
+  pointer-events: all;
+  padding: 32px 24px;
+}
+
+/* glassmorphism card inside overlay */
+.lock-card {
+  text-align: center;
+  padding: 40px 36px;
+  background: rgba(255,200,230,0.06);
+  border: 1px solid rgba(255,200,230,0.18);
+  backdrop-filter: blur(10px);
+  max-width: 360px;
+  width: 100%;
+  position: relative;
+  animation: unlock-burst 0.6s ease forwards;
+}
+.lock-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    transparent 0%, rgba(255,200,230,0.04) 50%, transparent 100%);
+  background-size: 200% 200%;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.lock-icon {
+  font-size: 3.2rem;
+  display: block;
+  margin-bottom: 20px;
+  animation: lock-float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255,150,200,0.5));
+}
+
+.lock-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,200,230,0.7);
+  margin-bottom: 16px;
+}
+
+.lock-date {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  color: #fff;
+  text-shadow: 0 0 40px rgba(255,150,200,0.5);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.lock-sub {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 28px;
+}
+
+/* countdown strip inside lock card */
+.lock-countdown {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.lock-countdown-unit {
+  text-align: center;
+}
+.lock-countdown-num {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  color: rgba(255,200,230,0.85);
+  line-height: 1;
+  animation: countdown-pulse 2s ease-in-out infinite;
+}
+.lock-countdown-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-top: 4px;
+}
+.lock-sep {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: rgba(255,200,220,0.25);
+  padding-top: 6px;
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.lock-hint {
+  font-style: italic;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.22);
+  line-height: 1.7;
+}
+
+/* blurred peek of content behind lock */
+.lock-wrapper {
+  position: relative;
+  width: 100%;
+}
+.lock-blur-content {
+  filter: blur(14px) brightness(0.5);
+  user-select: none;
+  pointer-events: none;
+}
+
+/* little stars scattered on lock card */
+.lock-star {
+  position: absolute;
+  font-size: 0.6rem;
+  animation: stars-twinkle 2s ease-in-out infinite;
+  color: rgba(255,220,240,0.6);
+}
+
+@media (max-width: 768px) {
+  .btn-vintage { padding: 12px 32px; font-size: 0.75rem; }
+  .parchment { padding: 36px 24px 32px; }
+  .lock-card { padding: 28px 20px; }
+}
 </style>
-<meta property="og:title" content="Open IT !!!">
-<meta property="og:description" content="🌷">
-<meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Open IT !!!">
-<meta name="twitter:description" content="🌷">
-  <meta property="og:title" content="Open IT !!!">
-<meta property="og:description" content="🌷">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://surpricejunior.netlify.app">
+<meta property="og:title" content="Open It!"/>
+<meta property="og:description" content="A story written just for you..."/>
 </head>
 <body>
-<div id="cur"></div>
-<div id="cdot"></div>
+<div id="cursor"></div>
+<div id="cursor-dot"></div>
 <div id="stars"></div>
+<div id="floating-elements"></div>
 
-<!-- PAGE 1 -->
-<div class="pg" id="p1">
-  <div class="inner">
-    <div class="tulip-row" id="rev-tulips"></div>
-    <h1 class="big-name">Junior</h1>
-    <p class="tagline">a surprise is waiting for you</p>
-    <button class="reveal-btn" id="revBtn">✦ &nbsp; Reveal &nbsp; ✦</button>
-    <p class="made-with">made with 🤍 just for you</p>
+<!-- PAGE 0 · INTRO -->
+<div class="page" id="page0">
+  <div id="page0-content" style="opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;text-align:center;">
+    <div id="tulips-row" style="display:flex;gap:20px;align-items:flex-end;justify-content:center;margin-bottom:32px;"></div>
+    <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(4rem,12vw,10rem);color:#fff;text-shadow:0 0 60px rgba(255,200,220,0.3);line-height:1;margin-bottom:32px;">
+      Junior
+    </h1>
+    <button class="btn-vintage" onclick="nextPage()" style="display:flex;align-items:center;gap:12px;margin:0 auto;">
+      <span>&#10024;</span><span>Open Your Surprise</span><span>&#10024;</span>
+    </button>
+    <p style="margin-top:48px;font-style:italic;font-size:0.9rem;color:rgba(255,255,255,0.2);">
+      made with <span style="display:inline-block;animation:heartbeat 2s ease-in-out infinite;">&#10084;</span> for the one who loves stories
+    </p>
   </div>
 </div>
 
-<!-- PAGE 2 -->
-<div class="pg gone" id="p2">
-  <div class="scroll-inner">
-    <p class="sec-eyebrow">a little patience, dear</p>
-    <h1 class="sec-h1">Special Day</h1>
-    <p class="cd-date" style="margin-top:8px;">27 · June · 2026</p>
-    <div class="divider-line"></div>
-    <div class="countdown-wrap">
-      <div class="t-box"><div class="t-num" id="tH">--</div><div class="t-label">Hours</div></div>
-      <div class="t-colon">:</div>
-      <div class="t-box"><div class="t-num" id="tM">--</div><div class="t-label">Min</div></div>
-      <div class="t-colon">:</div>
-      <div class="t-box"><div class="t-num" id="tS">--</div><div class="t-label">Sec</div></div>
-    </div>
-    <div class="divider-line" style="margin-top:12px;"></div>
-
-    <div class="cake-section" id="cake-section">
-      <p class="cake-label">✦ come back on your birthday to blow these out ✦</p>
-
-      <svg id="cakesvg" class="cake-glow" width="320" height="320" viewBox="0 0 380 330" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;display:block;max-width:100%;">
-        <defs>
-          <!-- Tier 1 bottom – warm rose gold -->
-          <linearGradient id="t1s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c87c8a"/><stop offset="100%" stop-color="#8c4455"/></linearGradient>
-          <linearGradient id="t1t" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8a0b0"/><stop offset="100%" stop-color="#c87c8a"/></linearGradient>
-          <!-- Tier 2 top – blush pink -->
-          <linearGradient id="t2s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5c6d8"/><stop offset="100%" stop-color="#d488a8"/></linearGradient>
-          <linearGradient id="t2t" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fce8f3"/><stop offset="100%" stop-color="#f5c6d8"/></linearGradient>
-          <!-- Frosting -->
-          <linearGradient id="frostG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#fff0f6" stop-opacity=".96"/></linearGradient>
-          <!-- Plate -->
-          <linearGradient id="plateG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ece0d4"/><stop offset="100%" stop-color="#c8b89c"/></linearGradient>
-          <radialGradient id="plateSh" cx="50%" cy="50%"><stop offset="55%" stop-color="transparent"/><stop offset="100%" stop-color="rgba(0,0,0,.2)"/></radialGradient>
-          <!-- Candles -->
-          <linearGradient id="c1g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e87878"/><stop offset="50%" stop-color="#ffaaaa"/><stop offset="100%" stop-color="#c85050"/></linearGradient>
-          <linearGradient id="c2g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7899e8"/><stop offset="50%" stop-color="#aac4ff"/><stop offset="100%" stop-color="#4466cc"/></linearGradient>
-          <linearGradient id="c3g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f0c030"/><stop offset="50%" stop-color="#ffe07a"/><stop offset="100%" stop-color="#c09010"/></linearGradient>
-          <linearGradient id="c4g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#78cc78"/><stop offset="50%" stop-color="#aaeeaa"/><stop offset="100%" stop-color="#449944"/></linearGradient>
-          <linearGradient id="c5g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#cc78ee"/><stop offset="50%" stop-color="#e8aaff"/><stop offset="100%" stop-color="#8844cc"/></linearGradient>
-          <!-- Flames -->
-          <radialGradient id="flO" cx="50%" cy="82%" r="58%"><stop offset="0%" stop-color="#fffde0"/><stop offset="30%" stop-color="#ffcc00" stop-opacity=".95"/><stop offset="65%" stop-color="#ff8800" stop-opacity=".8"/><stop offset="100%" stop-color="#ff3300" stop-opacity="0"/></radialGradient>
-          <radialGradient id="flC" cx="50%" cy="78%" r="52%"><stop offset="0%" stop-color="#ffffff"/><stop offset="50%" stop-color="#fffde0" stop-opacity=".9"/><stop offset="100%" stop-color="#ffd000" stop-opacity="0"/></radialGradient>
-          <filter id="fgl" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="hal" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
-          <filter id="ds1" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,.25)"/></filter>
-          <filter id="ds2" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,.18)"/></filter>
-        </defs>
-
-        <!-- Ground shadow -->
-        <ellipse cx="190" cy="322" rx="130" ry="8" fill="rgba(0,0,0,0.3)"/>
-        <!-- Plate -->
-        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateG)"/>
-        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateSh)"/>
-        <ellipse cx="190" cy="314" rx="138" ry="15" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/>
-        <ellipse cx="190" cy="311" rx="130" ry="11" fill="none" stroke="rgba(255,255,255,.1)" stroke-width=".7"/>
-
-        <!-- ── TIER 1 (bottom) ── -->
-        <path d="M40 228 L40 308 Q40 318 190 318 Q340 318 340 308 L340 228 Q340 218 190 218 Q40 218 40 228Z" fill="url(#t1s)" filter="url(#ds1)"/>
-        <ellipse cx="190" cy="228" rx="150" ry="16" fill="url(#t1t)"/>
-        <!-- frosting drip band -->
-        <ellipse cx="190" cy="220" rx="154" ry="20" fill="url(#frostG)"/>
-        <!-- drip blobs -->
-        <ellipse cx="62"  cy="229" rx="13" ry="17" fill="white" opacity=".93"/>
-        <ellipse cx="100" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
-        <ellipse cx="142" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
-        <ellipse cx="190" cy="228" rx="13" ry="16" fill="white" opacity=".9"/>
-        <ellipse cx="238" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
-        <ellipse cx="278" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
-        <ellipse cx="316" cy="229" rx="12" ry="17" fill="white" opacity=".93"/>
-        <!-- decorative waves -->
-        <path d="M48 250 Q63 241 82 250 Q101 259 120 250 Q139 241 158 250 Q177 259 196 250 Q215 241 234 250 Q253 259 272 250 Q291 241 308 250 Q322 244 332 250" stroke="rgba(255,200,210,.4)" stroke-width="2.2" fill="none"/>
-        <path d="M48 272 Q63 263 82 272 Q101 281 120 272 Q139 263 158 272 Q177 281 196 272 Q215 263 234 272 Q253 281 272 272 Q291 263 308 272 Q322 266 332 272" stroke="rgba(255,190,205,.25)" stroke-width="1.5" fill="none"/>
-        <!-- pearls -->
-        <g fill="rgba(255,235,240,.55)">
-          <circle cx="76"  cy="262" r="4.5"/><circle cx="106" cy="276" r="3.5"/>
-          <circle cx="140" cy="264" r="4.5"/><circle cx="168" cy="278" r="3.5"/>
-          <circle cx="190" cy="263" r="5.5"/><circle cx="214" cy="278" r="3.5"/>
-          <circle cx="242" cy="264" r="4.5"/><circle cx="274" cy="276" r="3.5"/>
-          <circle cx="304" cy="262" r="4.5"/>
-        </g>
-        <!-- bottom text deco -->
-        <text x="190" y="302" font-size="13" fill="white" opacity=".15" text-anchor="middle" font-family="serif" letter-spacing="16">🌷 🤍 🌷</text>
-
-        <!-- ── TIER 2 (top) ── -->
-        <path d="M92 128 L92 220 Q92 230 190 230 Q288 230 288 220 L288 128 Q288 118 190 118 Q92 118 92 128Z" fill="url(#t2s)" filter="url(#ds2)"/>
-        <ellipse cx="190" cy="128" rx="98" ry="12" fill="url(#t2t)"/>
-        <!-- frosting t2 -->
-        <ellipse cx="190" cy="120" rx="102" ry="16" fill="url(#frostG)"/>
-        <!-- drip blobs t2 -->
-        <ellipse cx="110" cy="128" rx="11" ry="14" fill="white" opacity=".93"/>
-        <ellipse cx="142" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
-        <ellipse cx="172" cy="129" rx="11" ry="15" fill="white" opacity=".96"/>
-        <ellipse cx="208" cy="126" rx="11" ry="14" fill="white" opacity=".92"/>
-        <ellipse cx="240" cy="129" rx="10" ry="14" fill="white" opacity=".93"/>
-        <ellipse cx="268" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
-        <!-- waves t2 -->
-        <path d="M98 148 Q112 139 130 148 Q148 157 166 148 Q184 139 202 148 Q220 157 238 148 Q256 139 272 148 Q282 143 282 148" stroke="rgba(255,200,220,.45)" stroke-width="2" fill="none"/>
-        <path d="M98 168 Q112 159 130 168 Q148 177 166 168 Q184 159 202 168 Q220 177 238 168 Q256 159 272 168 Q282 163 282 168" stroke="rgba(255,190,215,.28)" stroke-width="1.4" fill="none"/>
-        <!-- pearls t2 -->
-        <g fill="rgba(255,240,250,.6)">
-          <circle cx="118" cy="160" r="4"/><circle cx="148" cy="174" r="3"/>
-          <circle cx="172" cy="160" r="4.5"/><circle cx="190" cy="172" r="3.5"/>
-          <circle cx="210" cy="160" r="4"/><circle cx="234" cy="174" r="3"/>
-          <circle cx="262" cy="160" r="4"/>
-        </g>
-        <!-- t2 text deco -->
-        <text x="190" y="213" font-size="12" fill="white" opacity=".18" text-anchor="middle" font-family="serif" letter-spacing="12">🤍 🌸 🤍</text>
-
-        <!-- ── 5 CANDLES on tier 2 top ── -->
-        <!-- spacing: 116, 140, 190, 240, 264 -->
-        <!-- C1 rose -->
-        <rect x="108" y="76"  width="16" height="44" rx="4.5" fill="url(#c1g)"/>
-        <rect x="111" y="78"  width="5"  height="40" rx="2.5" fill="rgba(255,255,255,.34)"/>
-        <ellipse cx="116" cy="76"  rx="8"  ry="4"   fill="rgba(255,180,180,.55)"/>
-        <!-- C2 blue -->
-        <rect x="132" y="68"  width="16" height="52" rx="4.5" fill="url(#c2g)"/>
-        <rect x="135" y="70"  width="5"  height="48" rx="2.5" fill="rgba(255,255,255,.34)"/>
-        <ellipse cx="140" cy="68"  rx="8"  ry="4"   fill="rgba(180,200,255,.55)"/>
-        <!-- C3 gold center tallest -->
-        <rect x="182" y="56"  width="16" height="62" rx="5"   fill="url(#c3g)"/>
-        <rect x="185" y="58"  width="5"  height="58" rx="2.5" fill="rgba(255,255,255,.34)"/>
-        <ellipse cx="190" cy="56"  rx="8.5" ry="4.2" fill="rgba(255,230,100,.55)"/>
-        <!-- C4 green -->
-        <rect x="232" y="68"  width="16" height="52" rx="4.5" fill="url(#c4g)"/>
-        <rect x="235" y="70"  width="5"  height="48" rx="2.5" fill="rgba(255,255,255,.34)"/>
-        <ellipse cx="240" cy="68"  rx="8"  ry="4"   fill="rgba(180,255,180,.55)"/>
-        <!-- C5 purple -->
-        <rect x="256" y="76"  width="16" height="44" rx="4.5" fill="url(#c5g)"/>
-        <rect x="259" y="78"  width="5"  height="40" rx="2.5" fill="rgba(255,255,255,.34)"/>
-        <ellipse cx="264" cy="76"  rx="8"  ry="4"   fill="rgba(220,160,255,.55)"/>
-
-        <!-- WICKS -->
-        <line x1="116" y1="72"  x2="116" y2="77"  stroke="#3a1010" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="140" y1="64"  x2="140" y2="69"  stroke="#10103a" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="190" y1="52"  x2="190" y2="57"  stroke="#3a3000" stroke-width="2"   stroke-linecap="round"/>
-        <line x1="240" y1="64"  x2="240" y2="69"  stroke="#103a10" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="264" y1="72"  x2="264" y2="77"  stroke="#2a1040" stroke-width="1.8" stroke-linecap="round"/>
-
-        <!-- GLOW HALOS -->
-        <ellipse cx="116" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-        <ellipse cx="140" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-        <ellipse cx="190" cy="40"  rx="26" ry="22" fill="rgba(255,165,50,.33)" filter="url(#hal)"/>
-        <ellipse cx="240" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-        <ellipse cx="264" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-
-        <!-- FLAMES -->
-        <g id="f1" class="flicker" style="transform-origin:116px 72px;animation-delay:0s;cursor:pointer;" onclick="blowC(1)">
-          <ellipse cx="116" cy="60"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
-          <ellipse cx="116" cy="64"  rx="4"   ry="8"  fill="url(#flC)"/>
-          <ellipse cx="116" cy="71"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="f2" class="flicker" style="transform-origin:140px 64px;animation-delay:.28s;cursor:pointer;" onclick="blowC(2)">
-          <ellipse cx="140" cy="52"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
-          <ellipse cx="140" cy="56"  rx="4"   ry="8"  fill="url(#flC)"/>
-          <ellipse cx="140" cy="63"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="f3" class="flicker" style="transform-origin:190px 52px;animation-delay:.6s;cursor:pointer;" onclick="blowC(3)">
-          <ellipse cx="190" cy="38"  rx="10"  ry="15" fill="url(#flO)" filter="url(#fgl)"/>
-          <ellipse cx="190" cy="43"  rx="5"   ry="9"  fill="url(#flC)"/>
-          <ellipse cx="190" cy="51"  rx="3"   ry="3"  fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="f4" class="flicker" style="transform-origin:240px 64px;animation-delay:.9s;cursor:pointer;" onclick="blowC(4)">
-          <ellipse cx="240" cy="52"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
-          <ellipse cx="240" cy="56"  rx="4"   ry="8"  fill="url(#flC)"/>
-          <ellipse cx="240" cy="63"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="f5" class="flicker" style="transform-origin:264px 72px;animation-delay:1.2s;cursor:pointer;" onclick="blowC(5)">
-          <ellipse cx="264" cy="60"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
-          <ellipse cx="264" cy="64"  rx="4"   ry="8"  fill="url(#flC)"/>
-          <ellipse cx="264" cy="71"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-
-        <!-- LOCK OVERLAY — subtle dark veil, no hard square -->
-        <rect id="cake-lock" x="30" y="30" width="320" height="298" fill="rgba(6,8,15,0.7)" rx="14"/>
-        <text id="lock-icon" x="190" y="178" text-anchor="middle" font-size="28" fill="rgba(255,255,255,0.22)" font-family="serif">🔒</text>
-        <text id="lock-txt"  x="190" y="208" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.15)" letter-spacing="5" font-family="Cinzel,serif">Opens 27 June</text>
-      </svg>
-
-      <p class="blow-hint locked-msg" id="bhint">candles unlock on your birthday 🌷</p>
-      <div class="btn-row">
-        <button class="cbtn" id="bOne" onclick="blowOne()" disabled>Blow One</button>
-        <button class="cbtn" id="bAll" onclick="blowAll()" disabled>Blow All 🌷</button>
+<!-- PAGE 1 · HOURS COUNTDOWN -->
+<div class="page hidden" id="page1">
+  <div id="page1-content" style="opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;text-align:center;">
+    <p style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(255,200,220,0.4);margin-bottom:48px;">
+      Counting down to your day
+    </p>
+    <div class="hours-display" id="hours-big">--</div>
+    <div class="hours-sub">hours remaining</div>
+    <div style="display:flex;gap:32px;justify-content:center;margin-top:32px;opacity:0.5;">
+      <div style="text-align:center;">
+        <div style="font-family:'Cinzel',serif;font-size:1.6rem;color:rgba(255,200,230,0.7);" id="min-small">--</div>
+        <div style="font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">min</div>
       </div>
-      <p id="wish-txt">&nbsp;</p>
+      <div style="font-family:'Cinzel',serif;font-size:1.4rem;color:rgba(255,200,220,0.3);padding-top:4px;animation:pulse-soft 2s ease-in-out infinite;">:</div>
+      <div style="text-align:center;">
+        <div style="font-family:'Cinzel',serif;font-size:1.6rem;color:rgba(255,200,230,0.7);" id="sec-small">--</div>
+        <div style="font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">sec</div>
+      </div>
     </div>
+    <div style="width:1px;height:40px;background:linear-gradient(180deg,transparent,rgba(255,200,220,0.15),transparent);margin:40px auto;"></div>
+    <p style="font-style:italic;font-size:1rem;color:rgba(255,255,255,0.3);max-width:380px;margin:0 auto 48px;line-height:1.9;">
+      Every moment brings you closer to a day filled with magic&hellip;
+    </p>
+    <button class="btn-vintage" onclick="nextPage()">See Your Cake</button>
   </div>
 </div>
 
-<!-- PAGE 3: BIRTHDAY -->
-<div class="pg gone" id="p3">
-  <div class="scroll-inner">
-    <h1 class="bday-h1">Happy</h1>
-    <h2 class="bday-h2">Birthday, Junior</h2>
-    <p class="bday-msg">You are the rare kind of soul<br/>who makes ordinary days feel like poetry.</p>
+<!-- PAGE 2 · BIRTHDAY CAKE (locked until June 27) -->
+<div class="page hidden" id="page2">
+  <div id="page2-content" style="opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;text-align:center;">
 
-    <div class="cake-section" style="margin-top:36px;opacity:1;animation:none;">
-      <p class="cake-label">✦ make a wish ✦</p>
-      <svg id="cakesvg3" class="cake-glow" width="320" height="320" viewBox="0 0 380 330" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;display:block;max-width:100%;">
-        <!-- shadow + plate -->
-        <ellipse cx="190" cy="322" rx="130" ry="8" fill="rgba(0,0,0,0.3)"/>
-        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateG)"/>
-        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateSh)"/>
-        <ellipse cx="190" cy="314" rx="138" ry="15" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/>
-        <!-- tier 1 -->
-        <path d="M40 228 L40 308 Q40 318 190 318 Q340 318 340 308 L340 228 Q340 218 190 218 Q40 218 40 228Z" fill="url(#t1s)"/>
-        <ellipse cx="190" cy="228" rx="150" ry="16" fill="url(#t1t)"/>
-        <ellipse cx="190" cy="220" rx="154" ry="20" fill="url(#frostG)"/>
-        <ellipse cx="62"  cy="229" rx="13" ry="17" fill="white" opacity=".93"/>
-        <ellipse cx="100" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
-        <ellipse cx="142" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
-        <ellipse cx="190" cy="228" rx="13" ry="16" fill="white" opacity=".9"/>
-        <ellipse cx="238" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
-        <ellipse cx="278" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
-        <ellipse cx="316" cy="229" rx="12" ry="17" fill="white" opacity=".93"/>
-        <path d="M48 250 Q63 241 82 250 Q101 259 120 250 Q139 241 158 250 Q177 259 196 250 Q215 241 234 250 Q253 259 272 250 Q291 241 308 250 Q322 244 332 250" stroke="rgba(255,200,210,.4)" stroke-width="2.2" fill="none"/>
-        <g fill="rgba(255,235,240,.55)"><circle cx="76" cy="262" r="4.5"/><circle cx="106" cy="276" r="3.5"/><circle cx="140" cy="264" r="4.5"/><circle cx="168" cy="278" r="3.5"/><circle cx="190" cy="263" r="5.5"/><circle cx="214" cy="278" r="3.5"/><circle cx="242" cy="264" r="4.5"/><circle cx="274" cy="276" r="3.5"/><circle cx="304" cy="262" r="4.5"/></g>
-        <text x="190" y="302" font-size="13" fill="white" opacity=".15" text-anchor="middle" font-family="serif" letter-spacing="16">🌷 🤍 🌷</text>
-        <!-- tier 2 -->
-        <path d="M92 128 L92 220 Q92 230 190 230 Q288 230 288 220 L288 128 Q288 118 190 118 Q92 118 92 128Z" fill="url(#t2s)"/>
-        <ellipse cx="190" cy="128" rx="98" ry="12" fill="url(#t2t)"/>
-        <ellipse cx="190" cy="120" rx="102" ry="16" fill="url(#frostG)"/>
-        <ellipse cx="110" cy="128" rx="11" ry="14" fill="white" opacity=".93"/>
-        <ellipse cx="142" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
-        <ellipse cx="172" cy="129" rx="11" ry="15" fill="white" opacity=".96"/>
-        <ellipse cx="208" cy="126" rx="11" ry="14" fill="white" opacity=".92"/>
-        <ellipse cx="240" cy="129" rx="10" ry="14" fill="white" opacity=".93"/>
-        <ellipse cx="268" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
-        <path d="M98 148 Q112 139 130 148 Q148 157 166 148 Q184 139 202 148 Q220 157 238 148 Q256 139 272 148 Q282 143 282 148" stroke="rgba(255,200,220,.45)" stroke-width="2" fill="none"/>
-        <path d="M98 168 Q112 159 130 168 Q148 177 166 168 Q184 159 202 168 Q220 177 238 168 Q256 159 272 168 Q282 163 282 168" stroke="rgba(255,190,215,.28)" stroke-width="1.4" fill="none"/>
-        <g fill="rgba(255,240,250,.6)"><circle cx="118" cy="160" r="4"/><circle cx="148" cy="174" r="3"/><circle cx="172" cy="160" r="4.5"/><circle cx="190" cy="172" r="3.5"/><circle cx="210" cy="160" r="4"/><circle cx="234" cy="174" r="3"/><circle cx="262" cy="160" r="4"/></g>
-        <text x="190" y="213" font-size="12" fill="white" opacity=".18" text-anchor="middle" font-family="serif" letter-spacing="12">🤍 🌸 🤍</text>
-        <!-- candles -->
-        <rect x="108" y="76"  width="16" height="44" rx="4.5" fill="url(#c1g)"/><rect x="111" y="78"  width="5" height="40" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="116" cy="76"  rx="8" ry="4" fill="rgba(255,180,180,.55)"/>
-        <rect x="132" y="68"  width="16" height="52" rx="4.5" fill="url(#c2g)"/><rect x="135" y="70"  width="5" height="48" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="140" cy="68"  rx="8" ry="4" fill="rgba(180,200,255,.55)"/>
-        <rect x="182" y="56"  width="16" height="62" rx="5"   fill="url(#c3g)"/><rect x="185" y="58"  width="5" height="58" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="190" cy="56"  rx="8.5" ry="4.2" fill="rgba(255,230,100,.55)"/>
-        <rect x="232" y="68"  width="16" height="52" rx="4.5" fill="url(#c4g)"/><rect x="235" y="70"  width="5" height="48" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="240" cy="68"  rx="8" ry="4" fill="rgba(180,255,180,.55)"/>
-        <rect x="256" y="76"  width="16" height="44" rx="4.5" fill="url(#c5g)"/><rect x="259" y="78"  width="5" height="40" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="264" cy="76"  rx="8" ry="4" fill="rgba(220,160,255,.55)"/>
-        <!-- wicks -->
-        <line x1="116" y1="72"  x2="116" y2="77"  stroke="#3a1010" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="140" y1="64"  x2="140" y2="69"  stroke="#10103a" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="190" y1="52"  x2="190" y2="57"  stroke="#3a3000" stroke-width="2"   stroke-linecap="round"/>
-        <line x1="240" y1="64"  x2="240" y2="69"  stroke="#103a10" stroke-width="1.8" stroke-linecap="round"/>
-        <line x1="264" y1="72"  x2="264" y2="77"  stroke="#2a1040" stroke-width="1.8" stroke-linecap="round"/>
-        <!-- halos -->
-        <ellipse cx="116" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-        <ellipse cx="140" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-        <ellipse cx="190" cy="40"  rx="26" ry="22" fill="rgba(255,165,50,.33)" filter="url(#hal)"/>
-        <ellipse cx="240" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-        <ellipse cx="264" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
-        <!-- flames -->
-        <g id="g1" class="flicker" style="transform-origin:116px 72px;animation-delay:0s;cursor:pointer;" onclick="blowC3(1)">
-          <ellipse cx="116" cy="60" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="116" cy="64" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="116" cy="71" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="g2" class="flicker" style="transform-origin:140px 64px;animation-delay:.28s;cursor:pointer;" onclick="blowC3(2)">
-          <ellipse cx="140" cy="52" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="140" cy="56" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="140" cy="63" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="g3" class="flicker" style="transform-origin:190px 52px;animation-delay:.6s;cursor:pointer;" onclick="blowC3(3)">
-          <ellipse cx="190" cy="38" rx="10" ry="15" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="190" cy="43" rx="5" ry="9" fill="url(#flC)"/><ellipse cx="190" cy="51" rx="3" ry="3" fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="g4" class="flicker" style="transform-origin:240px 64px;animation-delay:.9s;cursor:pointer;" onclick="blowC3(4)">
-          <ellipse cx="240" cy="52" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="240" cy="56" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="240" cy="63" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-        <g id="g5" class="flicker" style="transform-origin:264px 72px;animation-delay:1.2s;cursor:pointer;" onclick="blowC3(5)">
-          <ellipse cx="264" cy="60" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="264" cy="64" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="264" cy="71" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
-        </g>
-      </svg>
+    <!-- Lock wrapper — overlay sits on top of blurred content -->
+    <div class="lock-wrapper">
 
-      <p class="blow-hint" id="bhint3">tap a candle to blow it out 🤍</p>
-      <div class="btn-row">
-        <button class="cbtn" id="bOne3" onclick="blowOne3()">Blow One</button>
-        <button class="cbtn" id="bAll3" onclick="blowAll3()">Blow All 🌷</button>
+      <!-- Blurred peek of the cake content (always rendered, just blurred) -->
+      <div class="lock-blur-content" id="cake-blur-wrap">
+        <p style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,200,220,0.5);margin-bottom:14px;">Make a Wish</p>
+        <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,10vw,7rem);color:#fff;margin-bottom:6px;">Happy Birthday</h1>
+        <h2 style="font-family:'Great Vibes',cursive;font-size:clamp(2rem,7vw,4.5rem);color:rgba(255,255,255,0.8);margin-bottom:28px;">Junior</h2>
+        <div style="opacity:0.6;">
+          <svg width="200" height="190" viewBox="0 0 400 350">
+            <ellipse cx="200" cy="332" rx="145" ry="16" fill="#ece0d4"/>
+            <path d="M45 238 L45 326 Q45 336 200 336 Q355 336 355 326 L355 238 Q355 228 200 228 Q45 228 45 238Z" fill="#e8b4b8"/>
+            <ellipse cx="200" cy="230" rx="159" ry="21" fill="#fff" fill-opacity="0.9"/>
+            <path d="M95 138 L95 228 Q95 238 200 238 Q305 238 305 228 L305 138 Q305 128 200 128 Q95 128 95 138Z" fill="#f5d6dc"/>
+            <ellipse cx="200" cy="130" rx="109" ry="17" fill="#fff" fill-opacity="0.9"/>
+            <rect x="191" y="50" width="18" height="78" rx="5.5" fill="#ffe07a"/>
+            <rect x="114" y="76" width="18" height="52" rx="5" fill="#ffaaaa"/>
+            <rect x="140" y="62" width="18" height="66" rx="5" fill="#aac4ff"/>
+            <rect x="242" y="62" width="18" height="66" rx="5" fill="#aaeeaa"/>
+            <rect x="268" y="76" width="18" height="52" rx="5" fill="#e8aaff"/>
+          </svg>
+        </div>
       </div>
-      <p id="wish3">&nbsp;</p>
-    </div>
 
-    <div class="scroll-cue" id="scue"><span>poem for you</span><div class="sarrow"></div></div>
+      <!-- LOCK OVERLAY -->
+      <div class="locked-overlay" id="cake-lock-overlay">
+        <div class="lock-card">
+          <!-- decorative stars -->
+          <span class="lock-star" style="top:12px;left:18px;animation-delay:0s;">✦</span>
+          <span class="lock-star" style="top:18px;right:22px;animation-delay:0.7s;">✧</span>
+          <span class="lock-star" style="bottom:16px;left:30px;animation-delay:1.3s;">✦</span>
+          <span class="lock-star" style="bottom:20px;right:18px;animation-delay:0.4s;">✧</span>
 
-    <div class="poems-section">
-      <div class="poem-block">
-        <div class="poem-icon">🌷</div>
-        <div class="poem-title">Bloom</div>
-        <div class="poem-divider"></div>
-        <div class="poem-text">You bloom in every room you enter,
-without trying, without knowing —
-the way a tulip does not ask
-if it is beautiful enough to grow.</div>
-      </div>
-      <div class="poem-block">
-        <div class="poem-icon">🤍</div>
-        <div class="poem-title">What Makes You Magic</div>
-        <div class="poem-divider"></div>
-        <div class="poem-text">It is not just your laughter,
-though it undoes everything.
-It is the way you exist
-so gently, and so fully.</div>
-      </div>
-      <div class="poem-block">
-        <div class="poem-icon">✨</div>
-        <div class="poem-title">A Wish in Words</div>
-        <div class="poem-divider"></div>
-        <div class="poem-text">May this year carry you softly —
-through wild winds, still bring you flowers.
-May every door you reach
-already be swinging open for you.</div>
-      </div>
-      <div class="final-poem">
-        <div class="poem-text">In the language of tulips,
-you are the white one —
-pure, unhurried, quietly extraordinary.
+          <span class="lock-icon">🔒</span>
+          <div class="lock-title">Your surprise awaits</div>
+          <div class="lock-date">June 27th</div>
+          <div class="lock-sub">Your Birthday</div>
 
-Happy Birthday, Junior.
-May your whole life feel like spring.</div>
-        <p class="stamp">27 · June · 2026</p>
+          <div style="margin-bottom:28px;">
+            <div class="lock-countdown-num" id="lock-hours" style="font-family:'Cinzel',serif;font-size:clamp(2.8rem,10vw,4.5rem);color:rgba(255,200,230,0.85);line-height:1;animation:countdown-pulse 2s ease-in-out infinite;">--</div>
+            <div class="lock-countdown-label" style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:8px;">hours remaining</div>
+          </div>
+
+          <p class="lock-hint">
+            The cake &amp; candles are waiting<br/>
+            patiently for you&hellip; ✨
+          </p>
+        </div>
       </div>
-    </div>
+
+    </div><!-- /lock-wrapper -->
+
+    <!-- Actual cake (hidden under lock, revealed on birthday) -->
+    <div id="cake-real-content" style="display:none;">
+      <p style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,200,220,0.5);margin-bottom:14px;">Make a Wish</p>
+      <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,10vw,7rem);color:#fff;text-shadow:0 0 80px rgba(255,200,220,0.2);margin-bottom:6px;">Happy Birthday</h1>
+      <h2 style="font-family:'Great Vibes',cursive;font-size:clamp(2rem,7vw,4.5rem);color:rgba(255,255,255,0.8);margin-bottom:28px;">
+        Junior <span style="font-size:0.65em;color:rgba(255,200,220,0.6);">(cooker)</span>
+      </h2>
+
+      <div id="cake-container" style="position:relative;display:inline-block;animation:candle-glow 3s ease-in-out infinite;">
+        <svg id="cake-svg" width="320" height="300" viewBox="0 0 400 350" style="filter:drop-shadow(0 20px 50px rgba(0,0,0,0.4));overflow:visible;">
+          <defs>
+            <linearGradient id="tier1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#e8b4b8"/>
+              <stop offset="100%" stop-color="#c87c8a"/>
+            </linearGradient>
+            <linearGradient id="tier2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f5d6dc"/>
+              <stop offset="100%" stop-color="#d4a0a8"/>
+            </linearGradient>
+            <radialGradient id="flame-grad" cx="50%" cy="75%" r="60%">
+              <stop offset="0%"   stop-color="#fffde0"/>
+              <stop offset="25%"  stop-color="#ffcc00" stop-opacity="0.95"/>
+              <stop offset="60%"  stop-color="#ff8800" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#ff3300" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="flame-inner" cx="50%" cy="65%" r="55%">
+              <stop offset="0%"   stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#fffde0" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="halo-filter">
+              <feGaussianBlur stdDeviation="9" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <ellipse cx="200" cy="342" rx="135" ry="8" fill="rgba(0,0,0,0.3)"/>
+          <ellipse cx="200" cy="332" rx="145" ry="16" fill="#ece0d4"/>
+          <ellipse cx="200" cy="332" rx="145" ry="16" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <path d="M45 238 L45 326 Q45 336 200 336 Q355 336 355 326 L355 238 Q355 228 200 228 Q45 228 45 238Z" fill="url(#tier1)"/>
+          <ellipse cx="200" cy="238" rx="155" ry="17" fill="#e8b4b8"/>
+          <ellipse cx="200" cy="230" rx="159" ry="21" fill="#fff" fill-opacity="0.9"/>
+          <ellipse cx="66"  cy="239" rx="14" ry="18" fill="white" fill-opacity="0.93"/>
+          <ellipse cx="108" cy="236" rx="12" ry="16" fill="white" fill-opacity="0.89"/>
+          <ellipse cx="152" cy="242" rx="13" ry="19" fill="white" fill-opacity="0.96"/>
+          <ellipse cx="200" cy="238" rx="14" ry="17" fill="white" fill-opacity="0.90"/>
+          <ellipse cx="248" cy="242" rx="13" ry="19" fill="white" fill-opacity="0.96"/>
+          <ellipse cx="292" cy="236" rx="12" ry="16" fill="white" fill-opacity="0.89"/>
+          <ellipse cx="332" cy="239" rx="14" ry="18" fill="white" fill-opacity="0.93"/>
+          <text x="200" y="318" font-size="13" fill="white" fill-opacity="0.18" text-anchor="middle" font-family="serif" letter-spacing="20">🌸 ❤ 🌸</text>
+          <path d="M95 138 L95 228 Q95 238 200 238 Q305 238 305 228 L305 138 Q305 128 200 128 Q95 128 95 138Z" fill="url(#tier2)"/>
+          <ellipse cx="200" cy="138" rx="105" ry="13" fill="#f5d6dc"/>
+          <ellipse cx="200" cy="130" rx="109" ry="17" fill="#fff" fill-opacity="0.9"/>
+          <ellipse cx="112" cy="138" rx="12" ry="15" fill="white" fill-opacity="0.93"/>
+          <ellipse cx="156" cy="135" rx="11" ry="14" fill="white" fill-opacity="0.89"/>
+          <ellipse cx="200" cy="140" rx="12" ry="16" fill="white" fill-opacity="0.96"/>
+          <ellipse cx="244" cy="135" rx="12" ry="15" fill="white" fill-opacity="0.92"/>
+          <ellipse cx="288" cy="138" rx="11" ry="14" fill="white" fill-opacity="0.93"/>
+          <!-- Candle 1 -->
+          <g class="candle-clickable" onclick="blowCandle(1)" style="cursor:pointer;">
+            <rect x="114" y="76" width="18" height="52" rx="5" fill="#ffaaaa"/>
+            <rect x="117" y="78" width="6"  height="48" rx="3" fill="rgba(255,255,255,0.35)"/>
+            <ellipse cx="123" cy="76" rx="9"  ry="4.5" fill="rgba(255,180,180,0.6)"/>
+            <line x1="123" y1="68" x2="123" y2="76" stroke="#4a1515" stroke-width="2" stroke-linecap="round"/>
+            <ellipse id="halo1" cx="123" cy="52" rx="26" ry="20" fill="rgba(255,160,60,0.28)" filter="url(#halo-filter)"/>
+            <g id="flame1">
+              <ellipse cx="123" cy="55" rx="9" ry="16" fill="url(#flame-grad)" filter="url(#glow)" style="transform-origin:123px 71px;animation:flicker 1.9s ease-in-out infinite 0.0s;"/>
+              <ellipse cx="123" cy="60" rx="4.5" ry="9" fill="url(#flame-inner)"/>
+              <ellipse cx="123" cy="68" rx="2.5" ry="2.5" fill="rgba(255,240,180,0.9)"/>
+            </g>
+          </g>
+          <!-- Candle 2 -->
+          <g class="candle-clickable" onclick="blowCandle(2)" style="cursor:pointer;">
+            <rect x="140" y="62" width="18" height="66" rx="5" fill="#aac4ff"/>
+            <rect x="143" y="64" width="6"  height="62" rx="3" fill="rgba(255,255,255,0.35)"/>
+            <ellipse cx="149" cy="62" rx="9"  ry="4.5" fill="rgba(180,200,255,0.6)"/>
+            <line x1="149" y1="54" x2="149" y2="62" stroke="#151540" stroke-width="2" stroke-linecap="round"/>
+            <ellipse id="halo2" cx="149" cy="38" rx="26" ry="20" fill="rgba(255,160,60,0.28)" filter="url(#halo-filter)"/>
+            <g id="flame2">
+              <ellipse cx="149" cy="41" rx="9" ry="16" fill="url(#flame-grad)" filter="url(#glow)" style="transform-origin:149px 57px;animation:flicker 1.9s ease-in-out infinite 0.35s;"/>
+              <ellipse cx="149" cy="46" rx="4.5" ry="9" fill="url(#flame-inner)"/>
+              <ellipse cx="149" cy="54" rx="2.5" ry="2.5" fill="rgba(255,240,180,0.9)"/>
+            </g>
+          </g>
+          <!-- Candle 3 -->
+          <g class="candle-clickable" onclick="blowCandle(3)" style="cursor:pointer;">
+            <rect x="191" y="50" width="18" height="78" rx="5.5" fill="#ffe07a"/>
+            <rect x="194" y="52" width="6"  height="74" rx="3"   fill="rgba(255,255,255,0.35)"/>
+            <ellipse cx="200" cy="50" rx="10" ry="5"   fill="rgba(255,230,100,0.6)"/>
+            <line x1="200" y1="42" x2="200" y2="50" stroke="#4a3a00" stroke-width="2.2" stroke-linecap="round"/>
+            <ellipse id="halo3" cx="200" cy="22" rx="30" ry="24" fill="rgba(255,175,60,0.32)" filter="url(#halo-filter)"/>
+            <g id="flame3">
+              <ellipse cx="200" cy="25" rx="11" ry="19" fill="url(#flame-grad)" filter="url(#glow)" style="transform-origin:200px 44px;animation:flicker 1.9s ease-in-out infinite 0.7s;"/>
+              <ellipse cx="200" cy="32" rx="5.5" ry="11" fill="url(#flame-inner)"/>
+              <ellipse cx="200" cy="41" rx="3" ry="3" fill="rgba(255,240,180,0.9)"/>
+            </g>
+          </g>
+          <!-- Candle 4 -->
+          <g class="candle-clickable" onclick="blowCandle(4)" style="cursor:pointer;">
+            <rect x="242" y="62" width="18" height="66" rx="5" fill="#aaeeaa"/>
+            <rect x="245" y="64" width="6"  height="62" rx="3" fill="rgba(255,255,255,0.35)"/>
+            <ellipse cx="251" cy="62" rx="9"  ry="4.5" fill="rgba(180,255,180,0.6)"/>
+            <line x1="251" y1="54" x2="251" y2="62" stroke="#154015" stroke-width="2" stroke-linecap="round"/>
+            <ellipse id="halo4" cx="251" cy="38" rx="26" ry="20" fill="rgba(255,160,60,0.28)" filter="url(#halo-filter)"/>
+            <g id="flame4">
+              <ellipse cx="251" cy="41" rx="9" ry="16" fill="url(#flame-grad)" filter="url(#glow)" style="transform-origin:251px 57px;animation:flicker 1.9s ease-in-out infinite 1.05s;"/>
+              <ellipse cx="251" cy="46" rx="4.5" ry="9" fill="url(#flame-inner)"/>
+              <ellipse cx="251" cy="54" rx="2.5" ry="2.5" fill="rgba(255,240,180,0.9)"/>
+            </g>
+          </g>
+          <!-- Candle 5 -->
+          <g class="candle-clickable" onclick="blowCandle(5)" style="cursor:pointer;">
+            <rect x="268" y="76" width="18" height="52" rx="5" fill="#e8aaff"/>
+            <rect x="271" y="78" width="6"  height="48" rx="3" fill="rgba(255,255,255,0.35)"/>
+            <ellipse cx="277" cy="76" rx="9"  ry="4.5" fill="rgba(220,160,255,0.6)"/>
+            <line x1="277" y1="68" x2="277" y2="76" stroke="#351545" stroke-width="2" stroke-linecap="round"/>
+            <ellipse id="halo5" cx="277" cy="52" rx="26" ry="20" fill="rgba(255,160,60,0.28)" filter="url(#halo-filter)"/>
+            <g id="flame5">
+              <ellipse cx="277" cy="55" rx="9" ry="16" fill="url(#flame-grad)" filter="url(#glow)" style="transform-origin:277px 71px;animation:flicker 1.9s ease-in-out infinite 1.4s;"/>
+              <ellipse cx="277" cy="60" rx="4.5" ry="9" fill="url(#flame-inner)"/>
+              <ellipse cx="277" cy="68" rx="2.5" ry="2.5" fill="rgba(255,240,180,0.9)"/>
+            </g>
+          </g>
+        </svg>
+        <div id="particles" style="position:absolute;inset:0;pointer-events:none;overflow:visible;"></div>
+      </div>
+
+      <div id="cake-instructions" style="margin-top:28px;">
+        <p style="font-size:0.8rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:20px;">
+          Tap a candle — or blow them all
+        </p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <button class="btn-vintage small" onclick="blowRandomCandle()">Blow One</button>
+          <button class="btn-vintage small" onclick="blowAllCandles()">Blow All</button>
+          <button class="btn-vintage small" onclick="relightAllCandles()">Relight 🔥</button>
+        </div>
+        <p id="wish-message" style="margin-top:22px;font-size:0.85rem;color:rgba(255,255,255,0.25);font-style:italic;min-height:1.4em;"></p>
+      </div>
+
+      <button class="btn-vintage" onclick="nextPage()" style="margin-top:44px;">
+        Read the Poem
+      </button>
+    </div><!-- /cake-real-content -->
+
   </div>
+</div>
+
+<!-- PAGE 3 · POEM (locked until June 27) -->
+<div class="page hidden" id="page3">
+  <div id="page3-content" style="opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;text-align:center;width:100%;max-width:580px;padding:0 16px;">
+
+    <div class="lock-wrapper">
+
+      <!-- Blurred peek -->
+      <div class="lock-blur-content" id="poem-blur-wrap">
+        <p style="font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(255,200,220,0.4);margin-bottom:24px;">Written with care</p>
+        <div class="parchment-wrap">
+          <div class="parchment" style="filter:blur(2px);">
+            <div class="parchment-corner tl"></div>
+            <div class="parchment-corner tr"></div>
+            <div class="parchment-corner bl"></div>
+            <div class="parchment-corner br"></div>
+            <div class="parchment-title">For Junior</div>
+            <div class="parchment-poem">
+              <div class="parchment-stanza">
+                On your day, the world turns soft,<br/>
+                tulips bloom and stars shine bright.<br/>
+                May all your dreams come true aloft —<br/>
+                Happy Birthday, dear light.
+              </div>
+            </div>
+            <div class="parchment-seal">— Noobiee (Hellowe)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LOCK OVERLAY for poem -->
+      <div class="locked-overlay" id="poem-lock-overlay">
+        <div class="lock-card">
+          <span class="lock-star" style="top:12px;left:18px;animation-delay:0.2s;">✦</span>
+          <span class="lock-star" style="top:18px;right:22px;animation-delay:0.9s;">✧</span>
+          <span class="lock-star" style="bottom:16px;left:30px;animation-delay:1.5s;">✦</span>
+          <span class="lock-star" style="bottom:20px;right:18px;animation-delay:0.6s;">✧</span>
+
+          <span class="lock-icon">📜</span>
+          <div class="lock-title">A letter sealed with love</div>
+          <div class="lock-date">June 27th</div>
+          <div class="lock-sub">Only for your birthday</div>
+
+          <div style="margin-bottom:28px;">
+            <div class="lock-countdown-num" id="lock-hours2" style="font-family:'Cinzel',serif;font-size:clamp(2.8rem,10vw,4.5rem);color:rgba(255,200,230,0.85);line-height:1;animation:countdown-pulse 2s ease-in-out infinite;">--</div>
+            <div class="lock-countdown-label" style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:8px;">hours remaining</div>
+          </div>
+
+          <p class="lock-hint">
+            This poem was written just for you —<br/>
+            it opens when the day arrives ✨
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /lock-wrapper -->
+
+    <!-- Real poem, revealed on birthday -->
+    <div id="poem-real-content" style="display:none;">
+      <p style="font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(255,200,220,0.4);margin-bottom:24px;">Written with care</p>
+      <div class="parchment-wrap">
+        <div class="parchment">
+          <div class="parchment-corner tl"></div>
+          <div class="parchment-corner tr"></div>
+          <div class="parchment-corner bl"></div>
+          <div class="parchment-corner br"></div>
+          <div class="parchment-title">For Junior</div>
+          <div class="parchment-poem">
+            <div class="parchment-stanza">
+              On your day, the world turns soft,<br/>
+              tulips bloom and stars shine bright.<br/>
+              May all your dreams come true aloft —<br/>
+              Happy Birthday, dear light.
+            </div>
+          </div>
+          <div class="parchment-seal">— Noobiee (Hellowe)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Nav dots -->
+<div style="position:fixed;bottom:32px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:20;">
+  <button class="nav-dot active" onclick="goToPage(0)"></button>
+  <button class="nav-dot"        onclick="goToPage(1)"></button>
+  <button class="nav-dot"        onclick="goToPage(2)"></button>
+  <button class="nav-dot"        onclick="goToPage(3)"></button>
+</div>
+
+<div style="position:fixed;bottom:56px;left:50%;transform:translateX(-50%);z-index:20;">
+  <p style="font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,255,255,0.08);">
+    Double-click anywhere to skip
+  </p>
 </div>
 
 <script>
-const CUR=document.getElementById('cur'),CDOT=document.getElementById('cdot');
-document.addEventListener('mousemove',e=>{CUR.style.left=e.clientX+'px';CUR.style.top=e.clientY+'px';CDOT.style.left=e.clientX+'px';CDOT.style.top=e.clientY+'px';});
+let currentPage = 0;
+const totalPages = 4;
+const BIRTHDAY = new Date('2026-06-27T00:00:00');
+let blownCandles = new Set();
+let countdownInterval, lockInterval;
 
-(()=>{const s=document.getElementById('stars');for(let i=0;i<200;i++){const d=document.createElement('div'),z=Math.random()*2+.4;d.style.cssText=`position:absolute;width:${z}px;height:${z}px;border-radius:50%;background:#fff;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${Math.random()*.45+.05};animation:starT ${Math.random()*5+2}s ease infinite;animation-delay:${Math.random()*8}s;`;s.appendChild(d);}})();
+/* ── Check if birthday has arrived ── */
+function isBirthday() {
+  const now = new Date();
+  // Unlocks on June 27, 2026 00:00:00 local time
+  return now >= BIRTHDAY;
+}
 
-function tsvg(sz,op){const cx=sz*.5,h=sz,pw=sz*.28;return `<svg width="${sz*.58}" height="${sz*1.38}" viewBox="0 0 ${sz*.58} ${sz*1.38}" fill="none" style="opacity:${op}"><path d="M${cx*.58} ${h*.85} Q${cx*.58-pw*1.1} ${h*.5} ${cx*.58-pw*.55} ${h*.08} Q${cx*.58} 0 ${cx*.58} ${h*.18} Q${cx*.58-pw*.1} ${h*.48} ${cx*.58} ${h*.85}Z" fill="rgba(255,200,230,0.88)"/><path d="M${cx*.58} ${h*.85} Q${cx*.58+pw*1.1} ${h*.5} ${cx*.58+pw*.55} ${h*.08} Q${cx*.58} 0 ${cx*.58} ${h*.18} Q${cx*.58+pw*.1} ${h*.48} ${cx*.58} ${h*.85}Z" fill="rgba(255,220,240,0.62)"/><path d="M${cx*.58} ${h*.88} Q${cx*.58-pw*.4} ${h*.46} ${cx*.58} ${h*.02} Q${cx*.58+pw*.4} ${h*.46} ${cx*.58} ${h*.88}Z" fill="rgba(255,240,248,0.97)"/><line x1="${cx*.58}" y1="${h*.9}" x2="${cx*.58}" y2="${h*1.38}" stroke="rgba(255,255,255,0.22)" stroke-width="1.3" stroke-linecap="round"/></svg>`;}
-(()=>{const r=document.getElementById('rev-tulips');[32,44,56,44,32].forEach((sz,i)=>{const w=document.createElement('div');w.innerHTML=tsvg(sz,[.28,.5,.8,.5,.28][i]);r.appendChild(w);});})();
+/* ── Stars ── */
+function createStars() {
+  const c = document.getElementById('stars');
+  for (let i = 0; i < 150; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top  = Math.random() * 100 + '%';
+    const sz = (Math.random() * 2 + 0.5) + 'px';
+    s.style.width = sz; s.style.height = sz;
+    s.style.opacity = Math.random() * 0.5 + 0.1;
+    s.style.animationDelay = Math.random() * 3 + 's';
+    c.appendChild(s);
+  }
+}
 
-const TARGET=new Date('2026-06-27T00:00:00');
-const isBday=()=>new Date()>=TARGET;
-function showPage(id){['p1','p2','p3'].forEach(pid=>document.getElementById(pid).classList[pid===id?'remove':'add']('gone'));}
+/* ── Floating elements ── */
+function createFloatingElements() {
+  const c = document.getElementById('floating-elements');
+  for (let i = 0; i < 12; i++) {
+    const el = document.createElement('div');
+    el.className = 'floating-item';
+    el.style.left = (Math.random() * 96 + 2) + '%';
+    el.style.bottom = (-60 - Math.random() * 40) + 'px';
+    el.style.top = 'auto';
+    el.style.animationDelay = (Math.random() * 14) + 's';
+    el.style.animationDuration = (16 + Math.random() * 10) + 's';
+    if (i % 2 === 0) {
+      const w = 18 + Math.random() * 14;
+      el.innerHTML = `<svg width="${w}" height="${w*2.5}" viewBox="0 0 40 100" fill="none" style="opacity:0.4;">
+        <path d="M20 55 Q18 75 20 95" stroke="#228b22" stroke-width="2" fill="none"/>
+        <path d="M20 55 Q5 40 8 20 Q12 5 20 15 Q15 35 20 55" fill="#ffb6c1"/>
+        <path d="M20 55 Q35 40 32 20 Q28 5 20 15 Q25 35 20 55" fill="#ffb6c1"/>
+      </svg>`;
+    } else {
+      el.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.35)">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>`;
+    }
+    c.appendChild(el);
+  }
+}
 
-document.getElementById('revBtn').addEventListener('click',()=>{
-  document.getElementById('p1').classList.add('gone');
-  if(isBday()){setTimeout(()=>{showPage('p3');doSparks(28);setTimeout(()=>{document.getElementById('scue').style.opacity='1';},2400);},750);}
-  else{setTimeout(()=>{showPage('p2');runTimer();unlockCake();},750);}
+/* ── Tulips row ── */
+function createTulipsRow() {
+  const c = document.getElementById('tulips-row');
+  [30,36,42,36,30].forEach((sz,i) => {
+    const wrap = document.createElement('div');
+    wrap.style.animation = `float 6s ease-in-out infinite ${i*0.4}s`;
+    wrap.innerHTML = `<svg width="${sz}" height="${sz*2.5}" viewBox="0 0 40 100" fill="none">
+      <path d="M20 55 Q18 75 20 95" stroke="#228b22" stroke-width="2" fill="none"/>
+      <path d="M20 55 Q5 40 8 20 Q12 5 20 15 Q15 35 20 55" fill="#fff" fill-opacity="0.95"/>
+      <path d="M20 55 Q35 40 32 20 Q28 5 20 15 Q25 35 20 55" fill="#fff" fill-opacity="0.82"/>
+      <path d="M20 55 Q15 35 16 15 Q18 2 20 10 Q22 2 24 15 Q25 35 20 55" fill="#fff"/>
+      <path d="M20 73 Q25 63 40 68 Q30 73 20 78" fill="#228b22" opacity="0.7"/>
+    </svg>`;
+    c.appendChild(wrap);
+  });
+}
+
+/* ── Custom cursor ── */
+document.addEventListener('mousemove', e => {
+  document.getElementById('cursor').style.left     = e.clientX + 'px';
+  document.getElementById('cursor').style.top      = e.clientY + 'px';
+  document.getElementById('cursor-dot').style.left = e.clientX + 'px';
+  document.getElementById('cursor-dot').style.top  = e.clientY + 'px';
 });
 
-let tInt;
-function pad(n){return String(n).padStart(2,'0');}
-function runTimer(){
-  function tick(){
-    const diff=TARGET-new Date();
-    if(diff<=0){clearInterval(tInt);showPage('p3');doSparks(28);setTimeout(()=>{document.getElementById('scue').style.opacity='1';},2400);return;}
-    const totalH=Math.floor(diff/3600000);
-    const m=Math.floor((diff%3600000)/60000);
-    const s=Math.floor((diff%60000)/1000);
-    document.getElementById('tH').textContent=String(totalH);
-    document.getElementById('tM').textContent=pad(m);
-    document.getElementById('tS').textContent=pad(s);
+document.addEventListener('dblclick', () => {
+  if (currentPage < totalPages - 1) nextPage();
+});
+
+/* ── Main countdown (page 1) ── */
+function startCountdown() {
+  function tick() {
+    const diff = BIRTHDAY - new Date();
+    if (diff <= 0) {
+      document.getElementById('hours-big').textContent  = '0';
+      document.getElementById('min-small').textContent  = '00';
+      document.getElementById('sec-small').textContent  = '00';
+      clearInterval(countdownInterval);
+      return;
+    }
+    const totalHours = Math.floor(diff / (1000*60*60));
+    const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const secs = Math.floor((diff % (1000*60)) / 1000);
+    document.getElementById('hours-big').textContent  = totalHours;
+    document.getElementById('min-small').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('sec-small').textContent  = String(secs).padStart(2,'0');
   }
-  tick();tInt=setInterval(tick,1000);
+  tick();
+  countdownInterval = setInterval(tick, 1000);
 }
 
-function unlockCake(){
-  if(!isBday())return;
-  ['cake-lock','lock-icon','lock-txt'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none';});
-  document.getElementById('bhint').textContent='tap a candle to blow it out 🤍';
-  document.getElementById('bhint').classList.remove('locked-msg');
-  document.getElementById('bOne').disabled=false;
-  document.getElementById('bAll').disabled=false;
+/* ── Lock countdown (pages 2 & 3) ── */
+function updateLockCountdown() {
+  const diff = BIRTHDAY - new Date();
+  if (diff <= 0) { checkAndUnlock(); return; }
+  const totalHours = Math.floor(diff / (1000*60*60));
+  ['','2'].forEach(sfx => {
+    const el = document.getElementById('lock-hours' + sfx);
+    if (el) el.textContent = totalHours;
+  });
 }
 
-const WISHES=['may every wish you dare to make come true 🌷','the universe heard you — it always does 🤍','wishing you a year as beautiful as you are ✨','blow softly, dream loudly — this one is all yours 🌸','all five flames carry your wishes to the stars 💫'];
+function checkAndUnlock() {
+  if (!isBirthday()) return;
 
-const litP2=new Set([1,2,3,4,5]);let blownP2=0;
-function blowC(id){
-  if(!isBday()||!litP2.has(id))return;
-  litP2.delete(id);
-  const f=document.getElementById('f'+id);
-  if(f){f.style.transition='opacity .35s,transform .4s';f.style.opacity='0';f.style.transform='scale(0) translateY(-16px)';}
-  blownP2++;
-  const w=document.getElementById('wish-txt');w.style.opacity='0';
-  setTimeout(()=>{w.textContent=WISHES[Math.min(blownP2-1,4)];w.style.opacity='1';},160);
-  if(blownP2>=5){document.getElementById('bOne').disabled=true;document.getElementById('bAll').disabled=true;document.getElementById('bhint').textContent='✨ all wishes sent to the stars ✨';setTimeout(()=>doSparks(50),200);}
-}
-function blowOne(){const a=[...litP2];if(a.length)blowC(a[Math.floor(Math.random()*a.length)]);}
-function blowAll(){[...litP2].forEach((id,i)=>setTimeout(()=>blowC(id),i*220));}
+  /* Unlock cake page */
+  const cakeOverlay = document.getElementById('cake-lock-overlay');
+  const cakeBlur    = document.getElementById('cake-blur-wrap');
+  const cakeReal    = document.getElementById('cake-real-content');
+  if (cakeOverlay) { cakeOverlay.style.transition='opacity 1s ease'; cakeOverlay.style.opacity='0'; setTimeout(()=>cakeOverlay.style.display='none',1000); }
+  if (cakeBlur)    cakeBlur.style.display = 'none';
+  if (cakeReal)    cakeReal.style.display = 'block';
 
-const litP3=new Set([1,2,3,4,5]);let blownP3=0;
-function blowC3(id){
-  if(!litP3.has(id))return;
-  litP3.delete(id);
-  const f=document.getElementById('g'+id);
-  if(f){f.style.transition='opacity .35s,transform .4s';f.style.opacity='0';f.style.transform='scale(0) translateY(-16px)';}
-  blownP3++;
-  const w=document.getElementById('wish3');w.style.opacity='0';
-  setTimeout(()=>{w.textContent=WISHES[Math.min(blownP3-1,4)];w.style.opacity='1';},160);
-  if(blownP3>=5){document.getElementById('bOne3').disabled=true;document.getElementById('bAll3').disabled=true;document.getElementById('bhint3').textContent='✨ all wishes sent to the stars ✨';setTimeout(()=>doSparks(55),200);}
-}
-function blowOne3(){const a=[...litP3];if(a.length)blowC3(a[Math.floor(Math.random()*a.length)]);}
-function blowAll3(){[...litP3].forEach((id,i)=>setTimeout(()=>blowC3(id),i*220));}
+  /* Unlock poem page */
+  const poemOverlay = document.getElementById('poem-lock-overlay');
+  const poemBlur    = document.getElementById('poem-blur-wrap');
+  const poemReal    = document.getElementById('poem-real-content');
+  if (poemOverlay) { poemOverlay.style.transition='opacity 1s ease'; poemOverlay.style.opacity='0'; setTimeout(()=>poemOverlay.style.display='none',1000); }
+  if (poemBlur)    poemBlur.style.display = 'none';
+  if (poemReal)    poemReal.style.display = 'block';
 
-function doSparks(n){
-  const em=['✨','🌷','🤍','💫','🌸','🎊'];
-  for(let i=0;i<n;i++){setTimeout(()=>{const e=document.createElement('div');e.className='spk';e.textContent=em[Math.floor(Math.random()*em.length)];e.style.left=Math.random()*90+5+'%';e.style.top=Math.random()*90+5+'%';e.style.fontSize=Math.random()*16+11+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),1400);},i*48);}
+  clearInterval(lockInterval);
 }
 
-let pv=false;
-document.addEventListener('dblclick',()=>{if(pv)return;pv=true;document.getElementById('p1').classList.add('gone');setTimeout(()=>{showPage('p3');doSparks(28);setTimeout(()=>{document.getElementById('scue').style.opacity='1';},2200);},700);});
+function startLockCountdown() {
+  if (isBirthday()) { checkAndUnlock(); return; }
+  updateLockCountdown();
+  lockInterval = setInterval(() => { updateLockCountdown(); checkAndUnlock(); }, 1000);
+}
+
+/* ── Candle particles ── */
+const CANDLE_POS = { 1:{x:123,y:70}, 2:{x:149,y:56}, 3:{x:200,y:43}, 4:{x:251,y:56}, 5:{x:277,y:70} };
+function createCandleParticles(num) {
+  const pos = CANDLE_POS[num];
+  if (!pos) return;
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 7; i++) {
+    setTimeout(() => {
+      const s = document.createElement('div');
+      s.className = 'smoke-particle';
+      s.style.left = (pos.x - 4 + Math.random()*8)+'px';
+      s.style.top  = (pos.y - 12)+'px';
+      container.appendChild(s);
+      setTimeout(()=>s.remove(), 1600);
+    }, i*55);
+  }
+  for (let i = 0; i < 10; i++) {
+    const sp = document.createElement('div');
+    sp.className = 'spark-particle';
+    sp.style.left = (pos.x + (Math.random()-0.5)*28)+'px';
+    sp.style.top  = (pos.y + (Math.random()-0.5)*18-18)+'px';
+    container.appendChild(sp);
+    setTimeout(()=>sp.remove(), 950);
+  }
+}
+
+function blowCandle(num) {
+  if (blownCandles.has(num)) return;
+  blownCandles.add(num);
+  const flame = document.getElementById('flame'+num);
+  const halo  = document.getElementById('halo'+num);
+  createCandleParticles(num);
+  if (flame) { flame.style.transition='opacity 0.4s ease'; flame.style.opacity='0'; }
+  if (halo)  { halo.style.transition ='opacity 0.4s ease'; halo.style.opacity ='0'; }
+  if (blownCandles.size >= 5) {
+    setTimeout(()=>{ document.getElementById('wish-message').textContent='✨ All wishes sent to the stars — may they all come true ✨'; }, 600);
+  }
+}
+function blowRandomCandle() {
+  const alive = [1,2,3,4,5].filter(n=>!blownCandles.has(n));
+  if (alive.length>0) blowCandle(alive[Math.floor(Math.random()*alive.length)]);
+}
+function blowAllCandles() {
+  [1,2,3,4,5].forEach((n,i)=>setTimeout(()=>blowCandle(n),i*220));
+}
+function relightAllCandles() {
+  blownCandles.clear();
+  document.getElementById('wish-message').textContent='';
+  for (let i=1;i<=5;i++) {
+    const flame=document.getElementById('flame'+i); const halo=document.getElementById('halo'+i);
+    if (flame){flame.style.transition='opacity 0.5s ease';flame.style.opacity='1';}
+    if (halo) {halo.style.transition ='opacity 0.5s ease';halo.style.opacity ='1';}
+  }
+}
+
+/* ── Page navigation ── */
+function updatePage() {
+  for (let i=0; i<totalPages; i++) {
+    const pg   = document.getElementById('page'+i);
+    const body = document.getElementById('page'+i+'-content');
+    if (i === currentPage) {
+      pg.classList.remove('hidden');
+      setTimeout(()=>{ if(body){body.style.opacity='1';body.style.transform='translateY(0)';} },100);
+      if (i===1) startCountdown();
+      if (i===2||i===3) startLockCountdown();
+    } else {
+      pg.classList.add('hidden');
+      if (body){body.style.opacity='0';body.style.transform='translateY(20px)';}
+    }
+  }
+  document.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===currentPage));
+}
+
+function nextPage()  { if(currentPage<totalPages-1){currentPage++;updatePage();} }
+function goToPage(p) { currentPage=p; updatePage(); }
+
+window.addEventListener('load', ()=>{
+  createStars();
+  createFloatingElements();
+  createTulipsRow();
+  setTimeout(()=>{
+    const c=document.getElementById('page0-content');
+    if(c){c.style.opacity='1';c.style.transform='translateY(0)';}
+  },500);
+});
 </script>
 </body>
 </html>

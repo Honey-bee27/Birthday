@@ -1,627 +1,512 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>✨Something Special For Youuu Junior</title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Junior 🌷</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:#06080f;font-family:'Cormorant Garamond',serif;color:#fff;}
+body{cursor:none;}
+#cur{position:fixed;width:14px;height:14px;border:1px solid rgba(255,220,240,0.5);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cdot{position:fixed;width:3px;height:3px;background:rgba(255,200,230,0.9);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#stars{position:fixed;inset:0;pointer-events:none;z-index:0;}
 
-  <meta name="description" content="Open IT !!!" />
-  <meta property="og:title" content="✨ Something Special For Youuuu Junior" />
-  <meta property="og:description" content="Open IT !!!" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="✨ Something Special For Youuu Junior" />
-  <meta name="twitter:description" content="Open IT !!!" />
-  <meta name="robots" content="noindex, nofollow" />
+.pg{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;transition:opacity .8s ease,transform .8s ease;}
+.pg.gone{opacity:0;pointer-events:none;transform:translateY(-18px);}
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+/* PAGE 1 */
+#p1 .inner{display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;padding:40px 24px;}
+.tulip-row{display:flex;gap:14px;align-items:flex-end;justify-content:center;opacity:0;animation:riseUp 1.6s ease .1s forwards;}
+.big-name{font-family:'Great Vibes',cursive;font-size:clamp(64px,13vw,148px);color:#fff;line-height:1;opacity:0;animation:riseUp 1.4s ease .45s forwards;text-shadow:0 0 60px rgba(255,180,220,0.15);}
+.tagline{font-size:clamp(11px,1.4vw,13px);letter-spacing:10px;text-transform:uppercase;color:rgba(255,255,255,0.28);opacity:0;animation:riseUp 1.2s ease .8s forwards;}
+.reveal-btn{font-family:'Cinzel',serif;font-size:13px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.85);background:transparent;border:1px solid rgba(255,255,255,0.22);padding:16px 56px;cursor:pointer;transition:all .4s;opacity:0;animation:riseUp 1.2s ease 1.1s forwards;}
+.reveal-btn:hover{border-color:rgba(255,180,220,0.55);letter-spacing:8px;color:#ffd6ec;}
+.made-with{font-style:italic;font-size:13px;color:rgba(255,255,255,0.18);opacity:0;animation:riseUp 1.2s ease 1.4s forwards;}
 
-    :root {
-      --bg: #06080f;
-      --white: #ffffff;
-      --cream: #f5f0e8;
-      --soft: rgba(255,255,255,0.12);
-      --glow: rgba(255,255,255,0.6);
-    }
+/* PAGE 2 */
+#p2{overflow-y:auto;overflow-x:hidden;align-items:stretch;justify-content:flex-start;}
+#p2 .scroll-inner{display:flex;flex-direction:column;align-items:center;min-height:100%;padding:44px 24px 80px;}
+.sec-eyebrow{font-size:11px;letter-spacing:9px;text-transform:uppercase;color:rgba(255,255,255,0.22);opacity:0;animation:riseUp 1s ease .1s forwards;}
+.sec-h1{font-family:'Great Vibes',cursive;font-size:clamp(44px,8vw,84px);color:#fff;text-align:center;line-height:.95;opacity:0;animation:riseUp 1s ease .25s forwards;}
+.divider-line{width:1px;height:28px;background:linear-gradient(180deg,transparent,rgba(255,180,220,0.18),transparent);margin:14px auto;}
+.cd-date{font-size:10px;letter-spacing:7px;color:rgba(255,255,255,0.18);opacity:0;animation:riseUp 1s ease .3s forwards;margin-bottom:4px;}
+.countdown-wrap{display:flex;align-items:center;gap:10px;opacity:0;animation:riseUp 1s ease .4s forwards;}
+.t-box{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.t-num{font-family:'Cinzel',serif;font-size:clamp(22px,4vw,32px);font-weight:600;color:rgba(255,200,230,0.75);line-height:1;min-width:52px;text-align:center;}
+.t-label{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.18);}
+.t-colon{font-family:'Cinzel',serif;font-size:clamp(14px,2.5vw,22px);font-weight:600;color:rgba(255,180,220,0.22);padding-bottom:12px;animation:blink 1.2s ease infinite;}
 
-    html, body {
-      width: 100%; height: 100%;
-      overflow: hidden;
-      background: var(--bg);
-      font-family: 'Cormorant Garamond', serif;
-      cursor: none;
-    }
+/* CAKE SECTION */
+.cake-section{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:20px;opacity:0;animation:riseUp 1.2s ease .55s forwards;}
+.cake-label{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:rgba(255,255,255,0.16);}
+.blow-hint{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.2);}
+.blow-hint.locked-msg{color:rgba(255,255,255,0.13);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px;}
+.cbtn{font-family:'Cinzel',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,180,220,0.55);background:transparent;border:0.5px solid rgba(255,180,220,0.2);padding:11px 26px;cursor:pointer;transition:all .3s;}
+.cbtn:hover{color:#ffd6ec;border-color:rgba(255,180,220,0.5);}
+.cbtn:active{transform:scale(.97);}
+.cbtn:disabled{opacity:.12;pointer-events:none;}
+#wish-txt{font-style:italic;font-size:clamp(13px,1.6vw,15px);color:rgba(255,180,220,0.4);min-height:20px;transition:opacity .4s;text-align:center;max-width:340px;}
 
-    #cursor {
-      position: fixed; width: 18px; height: 18px;
-      border: 1.5px solid rgba(255,255,255,0.7);
-      border-radius: 50%; pointer-events: none; z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: transform 0.1s ease;
-    }
+/* PAGE 3 */
+#p3{overflow-y:auto;overflow-x:hidden;align-items:stretch;justify-content:flex-start;}
+#p3 .scroll-inner{display:flex;flex-direction:column;align-items:center;min-height:100%;padding:60px 24px 100px;}
+.bday-eyebrow{font-size:11px;letter-spacing:9px;text-transform:uppercase;color:rgba(255,200,230,0.3);}
+.bday-h1{font-family:'Great Vibes',cursive;font-size:clamp(80px,15vw,178px);color:#fff;line-height:.88;text-shadow:0 0 80px rgba(255,180,220,0.16);}
+.bday-h2{font-family:'Great Vibes',cursive;font-size:clamp(38px,7vw,86px);color:rgba(255,255,255,0.72);}
+.bday-msg{font-style:italic;font-weight:300;font-size:clamp(14px,1.8vw,18px);color:rgba(255,255,255,0.35);max-width:400px;line-height:2;text-align:center;margin-top:6px;}
+.poems-section{width:100%;max-width:640px;margin-top:52px;display:flex;flex-direction:column;gap:48px;align-items:center;}
+.poem-block{text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.poem-icon{font-size:22px;opacity:.45;}
+.poem-title{font-family:'Cinzel',serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.28);}
+.poem-divider{width:22px;height:0.5px;background:rgba(255,180,220,0.18);}
+.poem-text{font-style:italic;font-weight:300;font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.4);line-height:2.1;white-space:pre-line;}
+.final-poem{margin-top:64px;text-align:center;max-width:500px;border-top:0.5px solid rgba(255,180,220,0.08);padding-top:56px;}
+.final-poem .poem-text{font-size:clamp(14px,1.9vw,17px);color:rgba(255,255,255,0.28);}
+.stamp{font-family:'Cinzel',serif;font-size:10px;letter-spacing:7px;color:rgba(255,255,255,0.12);text-transform:uppercase;margin-top:20px;}
+.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:32px;opacity:0;transition:opacity 1s;}
+.scroll-cue span{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.14);}
+.sarrow{width:1px;height:32px;background:linear-gradient(180deg,rgba(255,200,230,0.28),transparent);animation:pulse 2.2s ease infinite;}
 
-    #stars { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
-    #canvas { position: fixed; inset: 0; pointer-events: none; z-index: 1; }
-    .float-layer { position: fixed; inset: 0; pointer-events: none; z-index: 2; overflow: hidden; }
-
-    .page {
-      position: fixed; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      z-index: 10;
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .page.hidden { opacity: 0; pointer-events: none; transform: scale(0.96); }
-
-    /* ── COUNTDOWN PAGE ── */
-    #countdown-page { gap: 40px; }
-
-    .until-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(13px, 2vw, 16px);
-      font-weight: 300;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      animation: fadeSlideDown 1.2s ease forwards;
-      opacity: 0;
-    }
-
-    .main-title-cd {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(52px, 9vw, 110px);
-      color: var(--white);
-      text-shadow: 0 0 60px rgba(255,255,255,0.25), 0 0 120px rgba(255,255,255,0.1);
-      animation: fadeSlideDown 1.2s ease 0.3s forwards;
-      opacity: 0;
-      text-align: center;
-      line-height: 1;
-    }
-
-    .date-line {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(14px, 2.5vw, 22px);
-      font-weight: 300;
-      letter-spacing: 4px;
-      color: rgba(255,255,255,0.6);
-      animation: fadeSlideDown 1.2s ease 0.5s forwards;
-      opacity: 0;
-    }
-
-    /* Timer */
-    .timer-wrap {
-      display: flex; gap: clamp(16px, 4vw, 48px);
-      animation: fadeSlideDown 1.2s ease 0.7s forwards;
-      opacity: 0;
-    }
-
-    .timer-block {
-      display: flex; flex-direction: column; align-items: center; gap: 8px;
-      position: relative;
-    }
-
-    .timer-num {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(44px, 9vw, 100px);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1;
-      text-shadow: 0 0 40px rgba(255,255,255,0.3);
-      /* hours can be 3 digits, so allow a bit more room */
-      min-width: clamp(90px, 16vw, 180px);
-      text-align: center;
-      position: relative;
-    }
-    .timer-num::after {
-      content: '';
-      display: block;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      margin-top: 6px;
-    }
-
-    .timer-label {
-      font-size: clamp(9px, 1.5vw, 13px);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      font-weight: 300;
-    }
-
-    .timer-colon {
-      font-family: 'Cinzel Decorative', serif;
-      font-size: clamp(36px, 7vw, 80px);
-      color: rgba(255,255,255,0.2);
-      line-height: 1;
-      padding-top: 4px;
-      animation: pulse 1s infinite;
-    }
-
-    .tulip-divider {
-      display: flex; gap: 20px; align-items: center;
-      animation: fadeSlideDown 1.2s ease 0.9s forwards;
-      opacity: 0;
-    }
-    .tulip-divider .line {
-      width: clamp(40px, 8vw, 120px); height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
-    }
-    .tulip-divider .line:last-child {
-      background: linear-gradient(270deg, transparent, rgba(255,255,255,0.3));
-    }
-
-    /* ── BIRTHDAY PAGE ── */
-    #birthday-page { gap: 0; }
-
-    .bday-bg-glow {
-      position: fixed; inset: 0; z-index: -1;
-      background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,255,255,0.06) 0%, transparent 70%);
-      animation: glowPulse 3s ease infinite;
-    }
-
-    .bday-inner {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: clamp(12px, 3vh, 28px);
-      padding: 20px;
-      text-align: center;
-    }
-
-    .bday-top {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(11px, 1.8vw, 15px);
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      animation: revealUp 1s ease forwards;
-      opacity: 0;
-    }
-
-    .bday-main {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(64px, 13vw, 160px);
-      color: var(--white);
-      line-height: 0.95;
-      text-shadow:
-        0 0 30px rgba(255,255,255,0.5),
-        0 0 80px rgba(255,255,255,0.2),
-        0 0 160px rgba(255,255,255,0.1);
-      animation: revealUp 1s ease 0.2s forwards;
-      opacity: 0;
-    }
-
-    .bday-sub {
-      font-family: 'Great Vibes', cursive;
-      font-size: clamp(36px, 7vw, 90px);
-      color: rgba(255,255,255,0.85);
-      text-shadow: 0 0 40px rgba(255,255,255,0.3);
-      animation: revealUp 1s ease 0.4s forwards;
-      opacity: 0;
-    }
-
-    .bday-divider {
-      display: flex; align-items: center; gap: 16px;
-      animation: revealUp 1s ease 0.6s forwards;
-      opacity: 0;
-    }
-    .bday-divider span { font-size: 22px; color: rgba(255,255,255,0.5); }
-    .bday-divider .dl {
-      width: 80px; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3));
-    }
-    .bday-divider .dl:last-child {
-      background: linear-gradient(270deg, transparent, rgba(255,255,255,0.3));
-    }
-
-    .bday-msg {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(15px, 2.5vw, 22px);
-      font-weight: 300;
-      font-style: italic;
-      color: rgba(255,255,255,0.65);
-      max-width: 540px;
-      line-height: 1.8;
-      animation: revealUp 1s ease 0.8s forwards;
-      opacity: 0;
-      letter-spacing: 0.5px;
-    }
-
-    .bday-date-tag {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(12px, 1.8vw, 16px);
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      animation: revealUp 1s ease 1s forwards;
-      opacity: 0;
-    }
-
-    .tulip-row {
-      display: flex; gap: clamp(8px, 3vw, 32px);
-      align-items: flex-end;
-      animation: revealUp 1.2s ease 1.2s forwards;
-      opacity: 0;
-    }
-
-    .tulip-svg { filter: drop-shadow(0 0 12px rgba(255,255,255,0.3)); }
-
-    .heart {
-      position: absolute;
-      color: rgba(255,255,255,0.15);
-      font-size: 20px;
-      animation: floatHeart linear infinite;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .ftulip {
-      position: absolute;
-      opacity: 0.07;
-      animation: floatTulip linear infinite;
-      pointer-events: none;
-    }
-
-    @keyframes fadeSlideDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes revealUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulse {
-      0%,100% { opacity: 0.2; } 50% { opacity: 0.7; }
-    }
-    @keyframes glowPulse {
-      0%,100% { opacity: 1; } 50% { opacity: 0.6; }
-    }
-    @keyframes floatHeart {
-      0%   { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity: 0; }
-      10%  { opacity: 1; }
-      90%  { opacity: 0.8; }
-      100% { transform: translateY(-10vh) rotate(30deg) scale(1.2); opacity: 0; }
-    }
-    @keyframes floatTulip {
-      0%   { transform: translateY(110vh) rotate(-10deg); opacity: 0; }
-      10%  { opacity: 0.08; }
-      90%  { opacity: 0.06; }
-      100% { transform: translateY(-10vh) rotate(10deg); opacity: 0; }
-    }
-    @keyframes starTwinkle {
-      0%,100% { opacity: 0.6; } 50% { opacity: 0.1; }
-    }
-    @keyframes burst {
-      0%   { transform: scale(0) rotate(0deg); opacity: 1; }
-      100% { transform: scale(2.5) rotate(360deg); opacity: 0; }
-    }
-
-    .sparkle {
-      position: fixed;
-      pointer-events: none;
-      z-index: 20;
-      font-size: 24px;
-      animation: burst 1.5s ease forwards;
-    }
-
-    @media (max-width: 480px) {
-      .timer-wrap { gap: 10px; }
-      .timer-colon { display: none; }
-    }
-  </style>
+/* ANIMATIONS */
+.flicker{transform-origin:center bottom;animation:flicker 1.6s ease-in-out infinite;}
+@keyframes riseUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes blink{0%,100%{opacity:.12;}50%{opacity:.5;}}
+@keyframes starT{0%,100%{opacity:.5;}50%{opacity:.05;}}
+@keyframes flicker{
+  0%  {transform:scaleX(1)    scaleY(1)    rotate(-1.5deg);}
+  20% {transform:scaleX(.83)  scaleY(1.13) rotate(2.5deg);}
+  40% {transform:scaleX(1.07) scaleY(.91)  rotate(-2deg);}
+  60% {transform:scaleX(.89)  scaleY(1.17) rotate(2deg);}
+  80% {transform:scaleX(1.04) scaleY(.95)  rotate(-1deg);}
+  100%{transform:scaleX(1)    scaleY(1)    rotate(-1.5deg);}
+}
+@keyframes pulse{0%,100%{opacity:.22;}50%{opacity:.9;}}
+@keyframes sparkPop{0%{transform:scale(0) rotate(0deg);opacity:1;}100%{transform:scale(2.4) rotate(360deg);opacity:0;}}
+@keyframes glowPulse{
+  0%,100%{filter:drop-shadow(0 0 12px rgba(255,160,180,.32)) drop-shadow(0 0 32px rgba(255,100,130,.12));}
+  50%{filter:drop-shadow(0 0 24px rgba(255,200,220,.55)) drop-shadow(0 0 60px rgba(255,120,150,.22));}
+}
+.cake-glow{animation:glowPulse 2.4s ease-in-out infinite;}
+.spk{position:fixed;pointer-events:none;z-index:500;animation:sparkPop 1.3s ease forwards;}
+</style>
 </head>
 <body>
-
-<div id="cursor"></div>
+<div id="cur"></div>
+<div id="cdot"></div>
 <div id="stars"></div>
-<div class="float-layer" id="floatLayer"></div>
-<canvas id="canvas"></canvas>
 
-<!-- ===== COUNTDOWN PAGE ===== -->
-<div class="page" id="countdown-page">
-  <p class="until-text">Counting down to something magical</p>
-  <h1 class="main-title-cd">Special Day</h1>
-
-  <div class="timer-wrap">
-    <!-- HOURS (total remaining) -->
-    <div class="timer-block">
-      <div class="timer-num" id="hours">000</div>
-      <div class="timer-label">Hours</div>
-    </div>
-    <div class="timer-colon">:</div>
-    <div class="timer-block">
-      <div class="timer-num" id="minutes">00</div>
-      <div class="timer-label">Minutes</div>
-    </div>
-    <div class="timer-colon">:</div>
-    <div class="timer-block">
-      <div class="timer-num" id="seconds">00</div>
-      <div class="timer-label">Seconds</div>
-    </div>
+<!-- PAGE 1 -->
+<div class="pg" id="p1">
+  <div class="inner">
+    <div class="tulip-row" id="rev-tulips"></div>
+    <h1 class="big-name">Junior</h1>
+    <p class="tagline">a surprise is waiting for you</p>
+    <button class="reveal-btn" id="revBtn">✦ &nbsp; Reveal &nbsp; ✦</button>
+    <p class="made-with">made with 🤍 just for you</p>
   </div>
-
-  <div class="tulip-divider">
-    <div class="line"></div>
-    <svg width="28" height="40" viewBox="0 0 28 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14 30 Q14 20 14 10 Q10 6 6 10 Q4 18 10 24 Q12 27 14 30Z" fill="rgba(255,255,255,0.4)"/>
-      <path d="M14 30 Q14 20 14 10 Q18 6 22 10 Q24 18 18 24 Q16 27 14 30Z" fill="rgba(255,255,255,0.25)"/>
-      <line x1="14" y1="30" x2="14" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-    </svg>
-    <div class="line"></div>
-  </div>
-
-  <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(13px,2vw,17px); font-weight:300; font-style:italic; color:rgba(255,255,255,0.35); animation:fadeSlideDown 1.2s ease 1.1s forwards; opacity:0; letter-spacing:1px;">
-    Every second brings you closer to your bloom 🌷
-  </p>
 </div>
 
-<!-- ===== BIRTHDAY PAGE ===== -->
-<div class="page hidden" id="birthday-page">
-  <div class="bday-bg-glow"></div>
-  <div class="bday-inner">
-    <p class="bday-top">✦ Today is your day ✦</p>
-    <h1 class="bday-main">Happy</h1>
-    <h1 class="bday-sub">Birthday!</h1>
+<!-- PAGE 2 -->
+<div class="pg gone" id="p2">
+  <div class="scroll-inner">
+    <p class="sec-eyebrow">a little patience, dear</p>
+    <h1 class="sec-h1">Special Day</h1>
+    <p class="cd-date" style="margin-top:8px;">27 · June · 2026</p>
+    <div class="divider-line"></div>
+    <div class="countdown-wrap">
+      <div class="t-box"><div class="t-num" id="tH">--</div><div class="t-label">Hours</div></div>
+      <div class="t-colon">:</div>
+      <div class="t-box"><div class="t-num" id="tM">--</div><div class="t-label">Min</div></div>
+      <div class="t-colon">:</div>
+      <div class="t-box"><div class="t-num" id="tS">--</div><div class="t-label">Sec</div></div>
+    </div>
+    <div class="divider-line" style="margin-top:12px;"></div>
 
-    <div class="bday-divider">
-      <div class="dl"></div>
-      <span>🤍</span>
-      <div class="dl"></div>
+    <div class="cake-section" id="cake-section">
+      <p class="cake-label">✦ come back on your birthday to blow these out ✦</p>
+
+      <svg id="cakesvg" class="cake-glow" width="320" height="320" viewBox="0 0 380 330" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;display:block;max-width:100%;">
+        <defs>
+          <!-- Tier 1 bottom – warm rose gold -->
+          <linearGradient id="t1s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c87c8a"/><stop offset="100%" stop-color="#8c4455"/></linearGradient>
+          <linearGradient id="t1t" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8a0b0"/><stop offset="100%" stop-color="#c87c8a"/></linearGradient>
+          <!-- Tier 2 top – blush pink -->
+          <linearGradient id="t2s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5c6d8"/><stop offset="100%" stop-color="#d488a8"/></linearGradient>
+          <linearGradient id="t2t" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fce8f3"/><stop offset="100%" stop-color="#f5c6d8"/></linearGradient>
+          <!-- Frosting -->
+          <linearGradient id="frostG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#fff0f6" stop-opacity=".96"/></linearGradient>
+          <!-- Plate -->
+          <linearGradient id="plateG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ece0d4"/><stop offset="100%" stop-color="#c8b89c"/></linearGradient>
+          <radialGradient id="plateSh" cx="50%" cy="50%"><stop offset="55%" stop-color="transparent"/><stop offset="100%" stop-color="rgba(0,0,0,.2)"/></radialGradient>
+          <!-- Candles -->
+          <linearGradient id="c1g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e87878"/><stop offset="50%" stop-color="#ffaaaa"/><stop offset="100%" stop-color="#c85050"/></linearGradient>
+          <linearGradient id="c2g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7899e8"/><stop offset="50%" stop-color="#aac4ff"/><stop offset="100%" stop-color="#4466cc"/></linearGradient>
+          <linearGradient id="c3g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#f0c030"/><stop offset="50%" stop-color="#ffe07a"/><stop offset="100%" stop-color="#c09010"/></linearGradient>
+          <linearGradient id="c4g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#78cc78"/><stop offset="50%" stop-color="#aaeeaa"/><stop offset="100%" stop-color="#449944"/></linearGradient>
+          <linearGradient id="c5g" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#cc78ee"/><stop offset="50%" stop-color="#e8aaff"/><stop offset="100%" stop-color="#8844cc"/></linearGradient>
+          <!-- Flames -->
+          <radialGradient id="flO" cx="50%" cy="82%" r="58%"><stop offset="0%" stop-color="#fffde0"/><stop offset="30%" stop-color="#ffcc00" stop-opacity=".95"/><stop offset="65%" stop-color="#ff8800" stop-opacity=".8"/><stop offset="100%" stop-color="#ff3300" stop-opacity="0"/></radialGradient>
+          <radialGradient id="flC" cx="50%" cy="78%" r="52%"><stop offset="0%" stop-color="#ffffff"/><stop offset="50%" stop-color="#fffde0" stop-opacity=".9"/><stop offset="100%" stop-color="#ffd000" stop-opacity="0"/></radialGradient>
+          <filter id="fgl" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="hal" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+          <filter id="ds1" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="rgba(0,0,0,.25)"/></filter>
+          <filter id="ds2" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,.18)"/></filter>
+        </defs>
+
+        <!-- Ground shadow -->
+        <ellipse cx="190" cy="322" rx="130" ry="8" fill="rgba(0,0,0,0.3)"/>
+        <!-- Plate -->
+        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateG)"/>
+        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateSh)"/>
+        <ellipse cx="190" cy="314" rx="138" ry="15" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/>
+        <ellipse cx="190" cy="311" rx="130" ry="11" fill="none" stroke="rgba(255,255,255,.1)" stroke-width=".7"/>
+
+        <!-- ── TIER 1 (bottom) ── -->
+        <path d="M40 228 L40 308 Q40 318 190 318 Q340 318 340 308 L340 228 Q340 218 190 218 Q40 218 40 228Z" fill="url(#t1s)" filter="url(#ds1)"/>
+        <ellipse cx="190" cy="228" rx="150" ry="16" fill="url(#t1t)"/>
+        <!-- frosting drip band -->
+        <ellipse cx="190" cy="220" rx="154" ry="20" fill="url(#frostG)"/>
+        <!-- drip blobs -->
+        <ellipse cx="62"  cy="229" rx="13" ry="17" fill="white" opacity=".93"/>
+        <ellipse cx="100" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
+        <ellipse cx="142" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
+        <ellipse cx="190" cy="228" rx="13" ry="16" fill="white" opacity=".9"/>
+        <ellipse cx="238" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
+        <ellipse cx="278" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
+        <ellipse cx="316" cy="229" rx="12" ry="17" fill="white" opacity=".93"/>
+        <!-- decorative waves -->
+        <path d="M48 250 Q63 241 82 250 Q101 259 120 250 Q139 241 158 250 Q177 259 196 250 Q215 241 234 250 Q253 259 272 250 Q291 241 308 250 Q322 244 332 250" stroke="rgba(255,200,210,.4)" stroke-width="2.2" fill="none"/>
+        <path d="M48 272 Q63 263 82 272 Q101 281 120 272 Q139 263 158 272 Q177 281 196 272 Q215 263 234 272 Q253 281 272 272 Q291 263 308 272 Q322 266 332 272" stroke="rgba(255,190,205,.25)" stroke-width="1.5" fill="none"/>
+        <!-- pearls -->
+        <g fill="rgba(255,235,240,.55)">
+          <circle cx="76"  cy="262" r="4.5"/><circle cx="106" cy="276" r="3.5"/>
+          <circle cx="140" cy="264" r="4.5"/><circle cx="168" cy="278" r="3.5"/>
+          <circle cx="190" cy="263" r="5.5"/><circle cx="214" cy="278" r="3.5"/>
+          <circle cx="242" cy="264" r="4.5"/><circle cx="274" cy="276" r="3.5"/>
+          <circle cx="304" cy="262" r="4.5"/>
+        </g>
+        <!-- bottom text deco -->
+        <text x="190" y="302" font-size="13" fill="white" opacity=".15" text-anchor="middle" font-family="serif" letter-spacing="16">🌷 🤍 🌷</text>
+
+        <!-- ── TIER 2 (top) ── -->
+        <path d="M92 128 L92 220 Q92 230 190 230 Q288 230 288 220 L288 128 Q288 118 190 118 Q92 118 92 128Z" fill="url(#t2s)" filter="url(#ds2)"/>
+        <ellipse cx="190" cy="128" rx="98" ry="12" fill="url(#t2t)"/>
+        <!-- frosting t2 -->
+        <ellipse cx="190" cy="120" rx="102" ry="16" fill="url(#frostG)"/>
+        <!-- drip blobs t2 -->
+        <ellipse cx="110" cy="128" rx="11" ry="14" fill="white" opacity=".93"/>
+        <ellipse cx="142" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
+        <ellipse cx="172" cy="129" rx="11" ry="15" fill="white" opacity=".96"/>
+        <ellipse cx="208" cy="126" rx="11" ry="14" fill="white" opacity=".92"/>
+        <ellipse cx="240" cy="129" rx="10" ry="14" fill="white" opacity=".93"/>
+        <ellipse cx="268" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
+        <!-- waves t2 -->
+        <path d="M98 148 Q112 139 130 148 Q148 157 166 148 Q184 139 202 148 Q220 157 238 148 Q256 139 272 148 Q282 143 282 148" stroke="rgba(255,200,220,.45)" stroke-width="2" fill="none"/>
+        <path d="M98 168 Q112 159 130 168 Q148 177 166 168 Q184 159 202 168 Q220 177 238 168 Q256 159 272 168 Q282 163 282 168" stroke="rgba(255,190,215,.28)" stroke-width="1.4" fill="none"/>
+        <!-- pearls t2 -->
+        <g fill="rgba(255,240,250,.6)">
+          <circle cx="118" cy="160" r="4"/><circle cx="148" cy="174" r="3"/>
+          <circle cx="172" cy="160" r="4.5"/><circle cx="190" cy="172" r="3.5"/>
+          <circle cx="210" cy="160" r="4"/><circle cx="234" cy="174" r="3"/>
+          <circle cx="262" cy="160" r="4"/>
+        </g>
+        <!-- t2 text deco -->
+        <text x="190" y="213" font-size="12" fill="white" opacity=".18" text-anchor="middle" font-family="serif" letter-spacing="12">🤍 🌸 🤍</text>
+
+        <!-- ── 5 CANDLES on tier 2 top ── -->
+        <!-- spacing: 116, 140, 190, 240, 264 -->
+        <!-- C1 rose -->
+        <rect x="108" y="76"  width="16" height="44" rx="4.5" fill="url(#c1g)"/>
+        <rect x="111" y="78"  width="5"  height="40" rx="2.5" fill="rgba(255,255,255,.34)"/>
+        <ellipse cx="116" cy="76"  rx="8"  ry="4"   fill="rgba(255,180,180,.55)"/>
+        <!-- C2 blue -->
+        <rect x="132" y="68"  width="16" height="52" rx="4.5" fill="url(#c2g)"/>
+        <rect x="135" y="70"  width="5"  height="48" rx="2.5" fill="rgba(255,255,255,.34)"/>
+        <ellipse cx="140" cy="68"  rx="8"  ry="4"   fill="rgba(180,200,255,.55)"/>
+        <!-- C3 gold center tallest -->
+        <rect x="182" y="56"  width="16" height="62" rx="5"   fill="url(#c3g)"/>
+        <rect x="185" y="58"  width="5"  height="58" rx="2.5" fill="rgba(255,255,255,.34)"/>
+        <ellipse cx="190" cy="56"  rx="8.5" ry="4.2" fill="rgba(255,230,100,.55)"/>
+        <!-- C4 green -->
+        <rect x="232" y="68"  width="16" height="52" rx="4.5" fill="url(#c4g)"/>
+        <rect x="235" y="70"  width="5"  height="48" rx="2.5" fill="rgba(255,255,255,.34)"/>
+        <ellipse cx="240" cy="68"  rx="8"  ry="4"   fill="rgba(180,255,180,.55)"/>
+        <!-- C5 purple -->
+        <rect x="256" y="76"  width="16" height="44" rx="4.5" fill="url(#c5g)"/>
+        <rect x="259" y="78"  width="5"  height="40" rx="2.5" fill="rgba(255,255,255,.34)"/>
+        <ellipse cx="264" cy="76"  rx="8"  ry="4"   fill="rgba(220,160,255,.55)"/>
+
+        <!-- WICKS -->
+        <line x1="116" y1="72"  x2="116" y2="77"  stroke="#3a1010" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="140" y1="64"  x2="140" y2="69"  stroke="#10103a" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="190" y1="52"  x2="190" y2="57"  stroke="#3a3000" stroke-width="2"   stroke-linecap="round"/>
+        <line x1="240" y1="64"  x2="240" y2="69"  stroke="#103a10" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="264" y1="72"  x2="264" y2="77"  stroke="#2a1040" stroke-width="1.8" stroke-linecap="round"/>
+
+        <!-- GLOW HALOS -->
+        <ellipse cx="116" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+        <ellipse cx="140" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+        <ellipse cx="190" cy="40"  rx="26" ry="22" fill="rgba(255,165,50,.33)" filter="url(#hal)"/>
+        <ellipse cx="240" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+        <ellipse cx="264" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+
+        <!-- FLAMES -->
+        <g id="f1" class="flicker" style="transform-origin:116px 72px;animation-delay:0s;cursor:pointer;" onclick="blowC(1)">
+          <ellipse cx="116" cy="60"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
+          <ellipse cx="116" cy="64"  rx="4"   ry="8"  fill="url(#flC)"/>
+          <ellipse cx="116" cy="71"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="f2" class="flicker" style="transform-origin:140px 64px;animation-delay:.28s;cursor:pointer;" onclick="blowC(2)">
+          <ellipse cx="140" cy="52"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
+          <ellipse cx="140" cy="56"  rx="4"   ry="8"  fill="url(#flC)"/>
+          <ellipse cx="140" cy="63"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="f3" class="flicker" style="transform-origin:190px 52px;animation-delay:.6s;cursor:pointer;" onclick="blowC(3)">
+          <ellipse cx="190" cy="38"  rx="10"  ry="15" fill="url(#flO)" filter="url(#fgl)"/>
+          <ellipse cx="190" cy="43"  rx="5"   ry="9"  fill="url(#flC)"/>
+          <ellipse cx="190" cy="51"  rx="3"   ry="3"  fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="f4" class="flicker" style="transform-origin:240px 64px;animation-delay:.9s;cursor:pointer;" onclick="blowC(4)">
+          <ellipse cx="240" cy="52"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
+          <ellipse cx="240" cy="56"  rx="4"   ry="8"  fill="url(#flC)"/>
+          <ellipse cx="240" cy="63"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="f5" class="flicker" style="transform-origin:264px 72px;animation-delay:1.2s;cursor:pointer;" onclick="blowC(5)">
+          <ellipse cx="264" cy="60"  rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/>
+          <ellipse cx="264" cy="64"  rx="4"   ry="8"  fill="url(#flC)"/>
+          <ellipse cx="264" cy="71"  rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+
+        <!-- LOCK OVERLAY — subtle dark veil, no hard square -->
+        <rect id="cake-lock" x="30" y="30" width="320" height="298" fill="rgba(6,8,15,0.7)" rx="14"/>
+        <text id="lock-icon" x="190" y="178" text-anchor="middle" font-size="28" fill="rgba(255,255,255,0.22)" font-family="serif">🔒</text>
+        <text id="lock-txt"  x="190" y="208" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.15)" letter-spacing="5" font-family="Cinzel,serif">Opens 27 June</text>
+      </svg>
+
+      <p class="blow-hint locked-msg" id="bhint">candles unlock on your birthday 🌷</p>
+      <div class="btn-row">
+        <button class="cbtn" id="bOne" onclick="blowOne()" disabled>Blow One</button>
+        <button class="cbtn" id="bAll" onclick="blowAll()" disabled>Blow All 🌷</button>
+      </div>
+      <p id="wish-txt">&nbsp;</p>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: BIRTHDAY -->
+<div class="pg gone" id="p3">
+  <div class="scroll-inner">
+    <h1 class="bday-h1">Happy</h1>
+    <h2 class="bday-h2">Birthday, Junior</h2>
+    <p class="bday-msg">You are the rare kind of soul<br/>who makes ordinary days feel like poetry.</p>
+
+    <div class="cake-section" style="margin-top:36px;opacity:1;animation:none;">
+      <p class="cake-label">✦ make a wish ✦</p>
+      <svg id="cakesvg3" class="cake-glow" width="320" height="320" viewBox="0 0 380 330" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;display:block;max-width:100%;">
+        <!-- shadow + plate -->
+        <ellipse cx="190" cy="322" rx="130" ry="8" fill="rgba(0,0,0,0.3)"/>
+        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateG)"/>
+        <ellipse cx="190" cy="314" rx="138" ry="15" fill="url(#plateSh)"/>
+        <ellipse cx="190" cy="314" rx="138" ry="15" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.2"/>
+        <!-- tier 1 -->
+        <path d="M40 228 L40 308 Q40 318 190 318 Q340 318 340 308 L340 228 Q340 218 190 218 Q40 218 40 228Z" fill="url(#t1s)"/>
+        <ellipse cx="190" cy="228" rx="150" ry="16" fill="url(#t1t)"/>
+        <ellipse cx="190" cy="220" rx="154" ry="20" fill="url(#frostG)"/>
+        <ellipse cx="62"  cy="229" rx="13" ry="17" fill="white" opacity=".93"/>
+        <ellipse cx="100" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
+        <ellipse cx="142" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
+        <ellipse cx="190" cy="228" rx="13" ry="16" fill="white" opacity=".9"/>
+        <ellipse cx="238" cy="231" rx="12" ry="18" fill="white" opacity=".96"/>
+        <ellipse cx="278" cy="227" rx="11" ry="15" fill="white" opacity=".89"/>
+        <ellipse cx="316" cy="229" rx="12" ry="17" fill="white" opacity=".93"/>
+        <path d="M48 250 Q63 241 82 250 Q101 259 120 250 Q139 241 158 250 Q177 259 196 250 Q215 241 234 250 Q253 259 272 250 Q291 241 308 250 Q322 244 332 250" stroke="rgba(255,200,210,.4)" stroke-width="2.2" fill="none"/>
+        <g fill="rgba(255,235,240,.55)"><circle cx="76" cy="262" r="4.5"/><circle cx="106" cy="276" r="3.5"/><circle cx="140" cy="264" r="4.5"/><circle cx="168" cy="278" r="3.5"/><circle cx="190" cy="263" r="5.5"/><circle cx="214" cy="278" r="3.5"/><circle cx="242" cy="264" r="4.5"/><circle cx="274" cy="276" r="3.5"/><circle cx="304" cy="262" r="4.5"/></g>
+        <text x="190" y="302" font-size="13" fill="white" opacity=".15" text-anchor="middle" font-family="serif" letter-spacing="16">🌷 🤍 🌷</text>
+        <!-- tier 2 -->
+        <path d="M92 128 L92 220 Q92 230 190 230 Q288 230 288 220 L288 128 Q288 118 190 118 Q92 118 92 128Z" fill="url(#t2s)"/>
+        <ellipse cx="190" cy="128" rx="98" ry="12" fill="url(#t2t)"/>
+        <ellipse cx="190" cy="120" rx="102" ry="16" fill="url(#frostG)"/>
+        <ellipse cx="110" cy="128" rx="11" ry="14" fill="white" opacity=".93"/>
+        <ellipse cx="142" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
+        <ellipse cx="172" cy="129" rx="11" ry="15" fill="white" opacity=".96"/>
+        <ellipse cx="208" cy="126" rx="11" ry="14" fill="white" opacity=".92"/>
+        <ellipse cx="240" cy="129" rx="10" ry="14" fill="white" opacity=".93"/>
+        <ellipse cx="268" cy="126" rx="10" ry="13" fill="white" opacity=".89"/>
+        <path d="M98 148 Q112 139 130 148 Q148 157 166 148 Q184 139 202 148 Q220 157 238 148 Q256 139 272 148 Q282 143 282 148" stroke="rgba(255,200,220,.45)" stroke-width="2" fill="none"/>
+        <path d="M98 168 Q112 159 130 168 Q148 177 166 168 Q184 159 202 168 Q220 177 238 168 Q256 159 272 168 Q282 163 282 168" stroke="rgba(255,190,215,.28)" stroke-width="1.4" fill="none"/>
+        <g fill="rgba(255,240,250,.6)"><circle cx="118" cy="160" r="4"/><circle cx="148" cy="174" r="3"/><circle cx="172" cy="160" r="4.5"/><circle cx="190" cy="172" r="3.5"/><circle cx="210" cy="160" r="4"/><circle cx="234" cy="174" r="3"/><circle cx="262" cy="160" r="4"/></g>
+        <text x="190" y="213" font-size="12" fill="white" opacity=".18" text-anchor="middle" font-family="serif" letter-spacing="12">🤍 🌸 🤍</text>
+        <!-- candles -->
+        <rect x="108" y="76"  width="16" height="44" rx="4.5" fill="url(#c1g)"/><rect x="111" y="78"  width="5" height="40" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="116" cy="76"  rx="8" ry="4" fill="rgba(255,180,180,.55)"/>
+        <rect x="132" y="68"  width="16" height="52" rx="4.5" fill="url(#c2g)"/><rect x="135" y="70"  width="5" height="48" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="140" cy="68"  rx="8" ry="4" fill="rgba(180,200,255,.55)"/>
+        <rect x="182" y="56"  width="16" height="62" rx="5"   fill="url(#c3g)"/><rect x="185" y="58"  width="5" height="58" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="190" cy="56"  rx="8.5" ry="4.2" fill="rgba(255,230,100,.55)"/>
+        <rect x="232" y="68"  width="16" height="52" rx="4.5" fill="url(#c4g)"/><rect x="235" y="70"  width="5" height="48" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="240" cy="68"  rx="8" ry="4" fill="rgba(180,255,180,.55)"/>
+        <rect x="256" y="76"  width="16" height="44" rx="4.5" fill="url(#c5g)"/><rect x="259" y="78"  width="5" height="40" rx="2.5" fill="rgba(255,255,255,.34)"/><ellipse cx="264" cy="76"  rx="8" ry="4" fill="rgba(220,160,255,.55)"/>
+        <!-- wicks -->
+        <line x1="116" y1="72"  x2="116" y2="77"  stroke="#3a1010" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="140" y1="64"  x2="140" y2="69"  stroke="#10103a" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="190" y1="52"  x2="190" y2="57"  stroke="#3a3000" stroke-width="2"   stroke-linecap="round"/>
+        <line x1="240" y1="64"  x2="240" y2="69"  stroke="#103a10" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="264" y1="72"  x2="264" y2="77"  stroke="#2a1040" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- halos -->
+        <ellipse cx="116" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+        <ellipse cx="140" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+        <ellipse cx="190" cy="40"  rx="26" ry="22" fill="rgba(255,165,50,.33)" filter="url(#hal)"/>
+        <ellipse cx="240" cy="54"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+        <ellipse cx="264" cy="62"  rx="22" ry="17" fill="rgba(255,150,50,.28)" filter="url(#hal)"/>
+        <!-- flames -->
+        <g id="g1" class="flicker" style="transform-origin:116px 72px;animation-delay:0s;cursor:pointer;" onclick="blowC3(1)">
+          <ellipse cx="116" cy="60" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="116" cy="64" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="116" cy="71" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="g2" class="flicker" style="transform-origin:140px 64px;animation-delay:.28s;cursor:pointer;" onclick="blowC3(2)">
+          <ellipse cx="140" cy="52" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="140" cy="56" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="140" cy="63" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="g3" class="flicker" style="transform-origin:190px 52px;animation-delay:.6s;cursor:pointer;" onclick="blowC3(3)">
+          <ellipse cx="190" cy="38" rx="10" ry="15" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="190" cy="43" rx="5" ry="9" fill="url(#flC)"/><ellipse cx="190" cy="51" rx="3" ry="3" fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="g4" class="flicker" style="transform-origin:240px 64px;animation-delay:.9s;cursor:pointer;" onclick="blowC3(4)">
+          <ellipse cx="240" cy="52" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="240" cy="56" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="240" cy="63" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+        <g id="g5" class="flicker" style="transform-origin:264px 72px;animation-delay:1.2s;cursor:pointer;" onclick="blowC3(5)">
+          <ellipse cx="264" cy="60" rx="8.5" ry="13" fill="url(#flO)" filter="url(#fgl)"/><ellipse cx="264" cy="64" rx="4" ry="8" fill="url(#flC)"/><ellipse cx="264" cy="71" rx="2.5" ry="2.5" fill="rgba(255,240,160,.6)"/>
+        </g>
+      </svg>
+
+      <p class="blow-hint" id="bhint3">tap a candle to blow it out 🤍</p>
+      <div class="btn-row">
+        <button class="cbtn" id="bOne3" onclick="blowOne3()">Blow One</button>
+        <button class="cbtn" id="bAll3" onclick="blowAll3()">Blow All 🌷</button>
+      </div>
+      <p id="wish3">&nbsp;</p>
     </div>
 
-    <p class="bday-msg">
-      May your life always bloom like a tulip in spring —<br/>
-      your smile stay brigth & your heart stay happy.
-    </p>
+    <div class="scroll-cue" id="scue"><span>poem for you</span><div class="sarrow"></div></div>
 
-    <div class="tulip-row" id="tulipRow"></div>
+    <div class="poems-section">
+      <div class="poem-block">
+        <div class="poem-icon">🌷</div>
+        <div class="poem-title">Bloom</div>
+        <div class="poem-divider"></div>
+        <div class="poem-text">You bloom in every room you enter,
+without trying, without knowing —
+the way a tulip does not ask
+if it is beautiful enough to grow.</div>
+      </div>
+      <div class="poem-block">
+        <div class="poem-icon">🤍</div>
+        <div class="poem-title">What Makes You Magic</div>
+        <div class="poem-divider"></div>
+        <div class="poem-text">It is not just your laughter,
+though it undoes everything.
+It is the way you exist
+so gently, and so fully.</div>
+      </div>
+      <div class="poem-block">
+        <div class="poem-icon">✨</div>
+        <div class="poem-title">A Wish in Words</div>
+        <div class="poem-divider"></div>
+        <div class="poem-text">May this year carry you softly —
+through wild winds, still bring you flowers.
+May every door you reach
+already be swinging open for you.</div>
+      </div>
+      <div class="final-poem">
+        <div class="poem-text">In the language of tulips,
+you are the white one —
+pure, unhurried, quietly extraordinary.
 
-    <p class="bday-date-tag">27 · June · 2026</p>
+Happy Birthday, Junior.
+May your whole life feel like spring.</div>
+        <p class="stamp">27 · June · 2026</p>
+      </div>
+    </div>
   </div>
 </div>
 
 <script>
-/* ── CURSOR ── */
-const cur = document.getElementById('cursor');
-document.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX + 'px';
-  cur.style.top  = e.clientY + 'px';
+const CUR=document.getElementById('cur'),CDOT=document.getElementById('cdot');
+document.addEventListener('mousemove',e=>{CUR.style.left=e.clientX+'px';CUR.style.top=e.clientY+'px';CDOT.style.left=e.clientX+'px';CDOT.style.top=e.clientY+'px';});
+
+(()=>{const s=document.getElementById('stars');for(let i=0;i<200;i++){const d=document.createElement('div'),z=Math.random()*2+.4;d.style.cssText=`position:absolute;width:${z}px;height:${z}px;border-radius:50%;background:#fff;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${Math.random()*.45+.05};animation:starT ${Math.random()*5+2}s ease infinite;animation-delay:${Math.random()*8}s;`;s.appendChild(d);}})();
+
+function tsvg(sz,op){const cx=sz*.5,h=sz,pw=sz*.28;return `<svg width="${sz*.58}" height="${sz*1.38}" viewBox="0 0 ${sz*.58} ${sz*1.38}" fill="none" style="opacity:${op}"><path d="M${cx*.58} ${h*.85} Q${cx*.58-pw*1.1} ${h*.5} ${cx*.58-pw*.55} ${h*.08} Q${cx*.58} 0 ${cx*.58} ${h*.18} Q${cx*.58-pw*.1} ${h*.48} ${cx*.58} ${h*.85}Z" fill="rgba(255,200,230,0.88)"/><path d="M${cx*.58} ${h*.85} Q${cx*.58+pw*1.1} ${h*.5} ${cx*.58+pw*.55} ${h*.08} Q${cx*.58} 0 ${cx*.58} ${h*.18} Q${cx*.58+pw*.1} ${h*.48} ${cx*.58} ${h*.85}Z" fill="rgba(255,220,240,0.62)"/><path d="M${cx*.58} ${h*.88} Q${cx*.58-pw*.4} ${h*.46} ${cx*.58} ${h*.02} Q${cx*.58+pw*.4} ${h*.46} ${cx*.58} ${h*.88}Z" fill="rgba(255,240,248,0.97)"/><line x1="${cx*.58}" y1="${h*.9}" x2="${cx*.58}" y2="${h*1.38}" stroke="rgba(255,255,255,0.22)" stroke-width="1.3" stroke-linecap="round"/></svg>`;}
+(()=>{const r=document.getElementById('rev-tulips');[32,44,56,44,32].forEach((sz,i)=>{const w=document.createElement('div');w.innerHTML=tsvg(sz,[.28,.5,.8,.5,.28][i]);r.appendChild(w);});})();
+
+const TARGET=new Date('2026-06-27T00:00:00');
+const isBday=()=>new Date()>=TARGET;
+function showPage(id){['p1','p2','p3'].forEach(pid=>document.getElementById(pid).classList[pid===id?'remove':'add']('gone'));}
+
+document.getElementById('revBtn').addEventListener('click',()=>{
+  document.getElementById('p1').classList.add('gone');
+  if(isBday()){setTimeout(()=>{showPage('p3');doSparks(28);setTimeout(()=>{document.getElementById('scue').style.opacity='1';},2400);},750);}
+  else{setTimeout(()=>{showPage('p2');runTimer();unlockCake();},750);}
 });
 
-/* ── STARS ── */
-(function buildStars() {
-  const s = document.getElementById('stars');
-  for (let i = 0; i < 180; i++) {
-    const d = document.createElement('div');
-    const size = Math.random() * 2.5 + 0.5;
-    d.style.cssText = `
-      position:absolute;
-      width:${size}px; height:${size}px;
-      border-radius:50%;
-      background:white;
-      left:${Math.random()*100}%;
-      top:${Math.random()*100}%;
-      opacity:${Math.random()*0.7+0.1};
-      animation: starTwinkle ${Math.random()*4+2}s ease infinite;
-      animation-delay:${Math.random()*5}s;
-    `;
-    s.appendChild(d);
+let tInt;
+function pad(n){return String(n).padStart(2,'0');}
+function runTimer(){
+  function tick(){
+    const diff=TARGET-new Date();
+    if(diff<=0){clearInterval(tInt);showPage('p3');doSparks(28);setTimeout(()=>{document.getElementById('scue').style.opacity='1';},2400);return;}
+    const totalH=Math.floor(diff/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    const s=Math.floor((diff%60000)/1000);
+    document.getElementById('tH').textContent=String(totalH);
+    document.getElementById('tM').textContent=pad(m);
+    document.getElementById('tS').textContent=pad(s);
   }
-})();
-
-/* ── TULIP SVG builder ── */
-function makeTulipSVG(size=60, opacity=1) {
-  const h = size; const w = size * 0.6;
-  const stemH = size * 0.45;
-  const petalW = w * 0.55;
-  return `<svg width="${w}" height="${h + stemH}" viewBox="0 0 ${w} ${h + stemH}" fill="none" xmlns="http://www.w3.org/2000/svg" class="tulip-svg" style="opacity:${opacity}">
-    <path d="M${w/2} ${h*0.85}
-      Q${w/2 - petalW*1.1} ${h*0.55}
-        ${w/2 - petalW*0.6} ${h*0.12}
-      Q${w/2 - petalW*0.1} ${h*0.02}
-        ${w/2} ${h*0.22}
-      Q${w/2 - petalW*0.15} ${h*0.52}
-        ${w/2} ${h*0.85}Z"
-      fill="rgba(255,255,255,0.85)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-    <path d="M${w/2} ${h*0.85}
-      Q${w/2 + petalW*1.1} ${h*0.55}
-        ${w/2 + petalW*0.6} ${h*0.12}
-      Q${w/2 + petalW*0.1} ${h*0.02}
-        ${w/2} ${h*0.22}
-      Q${w/2 + petalW*0.15} ${h*0.52}
-        ${w/2} ${h*0.85}Z"
-      fill="rgba(255,255,255,0.65)" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
-    <path d="M${w/2} ${h*0.88}
-      Q${w/2 - petalW*0.5} ${h*0.5}
-        ${w/2} ${h*0.05}
-      Q${w/2 + petalW*0.5} ${h*0.5}
-        ${w/2} ${h*0.88}Z"
-      fill="rgba(255,255,255,0.95)" stroke="rgba(255,255,255,0.4)" stroke-width="0.5"/>
-    <line x1="${w/2}" y1="${h*0.88}" x2="${w/2}" y2="${h + stemH}" stroke="rgba(255,255,255,0.4)" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M${w/2} ${h + stemH*0.35}
-      Q${w/2 - petalW*0.8} ${h + stemH*0.15}
-        ${w/2 - petalW*0.4} ${h + stemH*0.6}
-      Q${w/2 - petalW*0.1} ${h + stemH*0.55}
-        ${w/2} ${h + stemH*0.35}Z"
-      fill="rgba(255,255,255,0.25)"/>
-  </svg>`;
+  tick();tInt=setInterval(tick,1000);
 }
 
-/* ── FLOATING HEARTS & TULIPS ── */
-(function buildFloating() {
-  const layer = document.getElementById('floatLayer');
-  for (let i = 0; i < 24; i++) {
-    const h = document.createElement('div');
-    h.className = 'heart';
-    h.innerHTML = '🤍';
-    const size = Math.random() * 18 + 10;
-    const dur  = Math.random() * 14 + 10;
-    const delay = Math.random() * 15;
-    h.style.cssText = `
-      left:${Math.random()*100}%;
-      font-size:${size}px;
-      animation-duration:${dur}s;
-      animation-delay:${delay}s;
-    `;
-    layer.appendChild(h);
-  }
-  for (let i = 0; i < 10; i++) {
-    const t = document.createElement('div');
-    t.className = 'ftulip';
-    const sz = Math.floor(Math.random()*50 + 40);
-    const dur  = Math.random()*20 + 18;
-    const delay= Math.random()*20;
-    t.style.cssText = `
-      left:${Math.random()*100}%;
-      animation-duration:${dur}s;
-      animation-delay:${delay}s;
-    `;
-    t.innerHTML = makeTulipSVG(sz, 1);
-    layer.appendChild(t);
-  }
-})();
-
-/* ── BUILD BIRTHDAY TULIP ROW ── */
-(function buildBdayTulips() {
-  const row = document.getElementById('tulipRow');
-  const sizes    = [55, 70, 85, 100, 85, 70, 55];
-  const opacities= [0.5, 0.7, 0.9, 1, 0.9, 0.7, 0.5];
-  sizes.forEach((sz, i) => {
-    const wrap = document.createElement('div');
-    wrap.innerHTML = makeTulipSVG(sz, opacities[i]);
-    row.appendChild(wrap);
-  });
-})();
-
-/* ── COUNTDOWN — total hours : minutes : seconds ── */
-const target = new Date('2026-06-27T00:00:00');
-
-function pad2(n) { return String(n).padStart(2,'0'); }
-function pad3(n) { return String(n).padStart(3,'0'); }   // hours can exceed 99
-
-function updateTimer() {
-  const now  = new Date();
-  const diff = target - now;
-
-  if (diff <= 0) {
-    showBirthday();
-    return;
-  }
-
-  // Total full hours remaining (includes the day portion)
-  const totalHours = Math.floor(diff / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000)   / 1000);
-
-  setNum('hours',   totalHours >= 100 ? pad3(totalHours) : pad2(totalHours));
-  setNum('minutes', pad2(m));
-  setNum('seconds', pad2(s));
+function unlockCake(){
+  if(!isBday())return;
+  ['cake-lock','lock-icon','lock-txt'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none';});
+  document.getElementById('bhint').textContent='tap a candle to blow it out 🤍';
+  document.getElementById('bhint').classList.remove('locked-msg');
+  document.getElementById('bOne').disabled=false;
+  document.getElementById('bAll').disabled=false;
 }
 
-function setNum(id, val) {
-  const el = document.getElementById(id);
-  if (el.textContent !== val) {
-    el.style.animation = 'none';
-    el.offsetHeight;
-    el.style.animation = '';
-    el.textContent = val;
-  }
+const WISHES=['may every wish you dare to make come true 🌷','the universe heard you — it always does 🤍','wishing you a year as beautiful as you are ✨','blow softly, dream loudly — this one is all yours 🌸','all five flames carry your wishes to the stars 💫'];
+
+const litP2=new Set([1,2,3,4,5]);let blownP2=0;
+function blowC(id){
+  if(!isBday()||!litP2.has(id))return;
+  litP2.delete(id);
+  const f=document.getElementById('f'+id);
+  if(f){f.style.transition='opacity .35s,transform .4s';f.style.opacity='0';f.style.transform='scale(0) translateY(-16px)';}
+  blownP2++;
+  const w=document.getElementById('wish-txt');w.style.opacity='0';
+  setTimeout(()=>{w.textContent=WISHES[Math.min(blownP2-1,4)];w.style.opacity='1';},160);
+  if(blownP2>=5){document.getElementById('bOne').disabled=true;document.getElementById('bAll').disabled=true;document.getElementById('bhint').textContent='✨ all wishes sent to the stars ✨';setTimeout(()=>doSparks(50),200);}
+}
+function blowOne(){const a=[...litP2];if(a.length)blowC(a[Math.floor(Math.random()*a.length)]);}
+function blowAll(){[...litP2].forEach((id,i)=>setTimeout(()=>blowC(id),i*220));}
+
+const litP3=new Set([1,2,3,4,5]);let blownP3=0;
+function blowC3(id){
+  if(!litP3.has(id))return;
+  litP3.delete(id);
+  const f=document.getElementById('g'+id);
+  if(f){f.style.transition='opacity .35s,transform .4s';f.style.opacity='0';f.style.transform='scale(0) translateY(-16px)';}
+  blownP3++;
+  const w=document.getElementById('wish3');w.style.opacity='0';
+  setTimeout(()=>{w.textContent=WISHES[Math.min(blownP3-1,4)];w.style.opacity='1';},160);
+  if(blownP3>=5){document.getElementById('bOne3').disabled=true;document.getElementById('bAll3').disabled=true;document.getElementById('bhint3').textContent='✨ all wishes sent to the stars ✨';setTimeout(()=>doSparks(55),200);}
+}
+function blowOne3(){const a=[...litP3];if(a.length)blowC3(a[Math.floor(Math.random()*a.length)]);}
+function blowAll3(){[...litP3].forEach((id,i)=>setTimeout(()=>blowC3(id),i*220));}
+
+function doSparks(n){
+  const em=['✨','🌷','🤍','💫','🌸','🎊'];
+  for(let i=0;i<n;i++){setTimeout(()=>{const e=document.createElement('div');e.className='spk';e.textContent=em[Math.floor(Math.random()*em.length)];e.style.left=Math.random()*90+5+'%';e.style.top=Math.random()*90+5+'%';e.style.fontSize=Math.random()*16+11+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),1400);},i*48);}
 }
 
-updateTimer();
-const timerInterval = setInterval(updateTimer, 1000);
-
-/* ── SHOW BIRTHDAY ── */
-function showBirthday() {
-  clearInterval(timerInterval);
-  const cdPage = document.getElementById('countdown-page');
-  const bdPage = document.getElementById('birthday-page');
-  cdPage.classList.add('hidden');
-  setTimeout(() => {
-    bdPage.classList.remove('hidden');
-    launchSparkles();
-    launchBirthdayHearts();
-  }, 400);
-}
-
-function launchSparkles() {
-  const emojis = ['✨','🌷','🤍','💫','🌸','❄️'];
-  for (let i = 0; i < 30; i++) {
-    setTimeout(() => {
-      const el = document.createElement('div');
-      el.className = 'sparkle';
-      el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
-      el.style.left  = Math.random()*90+5 + '%';
-      el.style.top   = Math.random()*90+5 + '%';
-      el.style.fontSize = Math.random()*20+16 + 'px';
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 1800);
-    }, i * 80);
-  }
-}
-
-function launchBirthdayHearts() {
-  const layer = document.getElementById('floatLayer');
-  for (let i = 0; i < 20; i++) {
-    const h = document.createElement('div');
-    h.className = 'heart';
-    h.innerHTML = '🤍';
-    h.style.cssText = `
-      left:${Math.random()*100}%;
-      font-size:${Math.random()*22+12}px;
-      animation-duration:${Math.random()*10+8}s;
-      animation-delay:${Math.random()*3}s;
-      color:rgba(255,255,255,0.25);
-    `;
-    layer.appendChild(h);
-  }
-}
-
-/* ── CANVAS shimmer particles ── */
-(function initCanvas() {
-  const canvas = document.getElementById('canvas');
-  const ctx    = canvas.getContext('2d');
-  let W, H;
-
-  function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  const particles = Array.from({length: 60}, () => ({
-    x: Math.random()*window.innerWidth,
-    y: Math.random()*window.innerHeight,
-    r: Math.random()*1.5+0.3,
-    vx: (Math.random()-0.5)*0.3,
-    vy: (Math.random()-0.5)*0.3,
-    a: Math.random()*0.4+0.05,
-  }));
-
-  function draw() {
-    ctx.clearRect(0,0,W,H);
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-      ctx.fillStyle = `rgba(255,255,255,${p.a})`;
-      ctx.fill();
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-/* ── Double-click to preview birthday screen ── */
-let previewMode = false;
-document.addEventListener('dblclick', () => {
-  if (!previewMode) { previewMode = true; showBirthday(); }
-});
+let pv=false;
+document.addEventListener('dblclick',()=>{if(pv)return;pv=true;document.getElementById('p1').classList.add('gone');setTimeout(()=>{showPage('p3');doSparks(28);setTimeout(()=>{document.getElementById('scue').style.opacity='1';},2200);},700);});
 </script>
 </body>
 </html>

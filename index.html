@@ -16,6 +16,10 @@ body {
   min-height: 100vh;
   cursor: none;
 }
+/* Restore pointer on all interactive elements so clicks register */
+button, a, [onclick], .candle-clickable {
+  cursor: none !important;
+}
 .page {
   position: fixed; inset: 0;
   display: flex; flex-direction: column;
@@ -82,6 +86,16 @@ body {
   100% { transform: translateY(-44px) scale(1.6); opacity: 0; }
 }
 
+/* ── Heart cursor animation ── */
+@keyframes heart-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%       { transform: translate(-50%, -50%) scale(1.25); }
+}
+@keyframes heart-trail-fade {
+  0%   { opacity: 0.7; transform: translate(-50%,-50%) scale(0.8); }
+  100% { opacity: 0;   transform: translate(-50%,-50%) scale(0.2) translateY(-20px); }
+}
+
 /* ── Lock overlay shimmer ── */
 @keyframes shimmer {
   0%   { background-position: -200% center; }
@@ -113,10 +127,12 @@ body {
   background: rgba(255,220,240,0.08);
   backdrop-filter: blur(10px);
   transition: all 0.4s ease;
-  cursor: none;
+  cursor: none !important;
   padding: 16px 48px;
   color: rgba(255,255,255,0.85);
   font-size: 0.85rem;
+  position: relative;
+  z-index: 2;
 }
 .btn-vintage:hover {
   border-color: rgba(255,200,220,0.6);
@@ -136,23 +152,34 @@ body {
   animation: floatUp 18s ease-in-out infinite;
 }
 
-#cursor {
-  position: fixed; width: 16px; height: 16px;
-  border: 1px solid rgba(255,255,255,0.5); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%); transition: transform 0.1s ease;
+/* ── Heart Cursor ── */
+#heart-cursor {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.08s ease;
+  animation: heart-pulse 1.6s ease-in-out infinite;
 }
-#cursor-dot {
-  position: fixed; width: 4px; height: 4px;
-  background: rgba(255,255,255,0.8); border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
+#heart-cursor svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 6px rgba(255,160,200,0.8)) drop-shadow(0 0 12px rgba(255,100,150,0.4));
+}
+.heart-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  animation: heart-trail-fade 0.7s ease-out forwards;
 }
 
 .nav-dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: rgba(255,255,255,0.2); border: none;
-  cursor: none; transition: all 0.3s ease; padding: 0;
+  cursor: none !important; transition: all 0.3s ease; padding: 0;
 }
 .nav-dot.active { background: rgba(255,200,220,0.8); transform: scale(1.3); }
 .nav-dot:hover  { background: rgba(255,200,220,0.5); }
@@ -254,7 +281,6 @@ body {
   padding: 32px 24px;
 }
 
-/* glassmorphism card inside overlay */
 .lock-card {
   text-align: center;
   padding: 40px 36px;
@@ -311,16 +337,13 @@ body {
   margin-bottom: 28px;
 }
 
-/* countdown strip inside lock card */
 .lock-countdown {
   display: flex;
   gap: 16px;
   justify-content: center;
   margin-bottom: 28px;
 }
-.lock-countdown-unit {
-  text-align: center;
-}
+.lock-countdown-unit { text-align: center; }
 .lock-countdown-num {
   font-family: 'Cinzel', serif;
   font-size: clamp(1.4rem, 5vw, 2rem);
@@ -350,18 +373,13 @@ body {
   line-height: 1.7;
 }
 
-/* blurred peek of content behind lock */
-.lock-wrapper {
-  position: relative;
-  width: 100%;
-}
+.lock-wrapper { position: relative; width: 100%; }
 .lock-blur-content {
   filter: blur(14px) brightness(0.5);
   user-select: none;
   pointer-events: none;
 }
 
-/* little stars scattered on lock card */
 .lock-star {
   position: absolute;
   font-size: 0.6rem;
@@ -373,14 +391,22 @@ body {
   .btn-vintage { padding: 12px 32px; font-size: 0.75rem; }
   .parchment { padding: 36px 24px 32px; }
   .lock-card { padding: 28px 20px; }
+  /* On touch devices hide the custom cursor */
+  #heart-cursor { display: none; }
 }
 </style>
 <meta property="og:title" content="Open It!"/>
 <meta property="og:description" content="A story written just for you..."/>
 </head>
 <body>
-<div id="cursor"></div>
-<div id="cursor-dot"></div>
+
+<!-- Heart Cursor -->
+<div id="heart-cursor">
+  <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</div>
+
 <div id="stars"></div>
 <div id="floating-elements"></div>
 
@@ -431,10 +457,7 @@ body {
 <div class="page hidden" id="page2">
   <div id="page2-content" style="opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;text-align:center;">
 
-    <!-- Lock wrapper — overlay sits on top of blurred content -->
     <div class="lock-wrapper">
-
-      <!-- Blurred peek of the cake content (always rendered, just blurred) -->
       <div class="lock-blur-content" id="cake-blur-wrap">
         <p style="font-family:'Cinzel',serif;font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:rgba(255,200,220,0.5);margin-bottom:14px;">Make a Wish</p>
         <h1 style="font-family:'Great Vibes',cursive;font-size:clamp(3rem,10vw,7rem);color:#fff;margin-bottom:6px;">Happy Birthday</h1>
@@ -458,7 +481,6 @@ body {
       <!-- LOCK OVERLAY -->
       <div class="locked-overlay" id="cake-lock-overlay">
         <div class="lock-card">
-          <!-- decorative stars -->
           <span class="lock-star" style="top:12px;left:18px;animation-delay:0s;">✦</span>
           <span class="lock-star" style="top:18px;right:22px;animation-delay:0.7s;">✧</span>
           <span class="lock-star" style="bottom:16px;left:30px;animation-delay:1.3s;">✦</span>
@@ -480,8 +502,7 @@ body {
           </p>
         </div>
       </div>
-
-    </div><!-- /lock-wrapper -->
+    </div>
 
     <!-- Actual cake (hidden under lock, revealed on birthday) -->
     <div id="cake-real-content" style="display:none;">
@@ -627,7 +648,7 @@ body {
       <button class="btn-vintage" onclick="nextPage()" style="margin-top:44px;">
         Read the Poem
       </button>
-    </div><!-- /cake-real-content -->
+    </div>
 
   </div>
 </div>
@@ -637,8 +658,6 @@ body {
   <div id="page3-content" style="opacity:0;transform:translateY(20px);transition:opacity 1s ease,transform 1s ease;text-align:center;width:100%;max-width:580px;padding:0 16px;">
 
     <div class="lock-wrapper">
-
-      <!-- Blurred peek -->
       <div class="lock-blur-content" id="poem-blur-wrap">
         <p style="font-family:'Cinzel',serif;font-size:0.68rem;letter-spacing:0.45em;text-transform:uppercase;color:rgba(255,200,220,0.4);margin-bottom:24px;">Written with care</p>
         <div class="parchment-wrap">
@@ -684,8 +703,7 @@ body {
           </p>
         </div>
       </div>
-
-    </div><!-- /lock-wrapper -->
+    </div>
 
     <!-- Real poem, revealed on birthday -->
     <div id="poem-real-content" style="display:none;">
@@ -733,12 +751,38 @@ const totalPages = 4;
 const BIRTHDAY = new Date('2026-06-27T00:00:00');
 let blownCandles = new Set();
 let countdownInterval, lockInterval;
+let trailTimeout;
+
+/* ── Heart cursor ── */
+const heartCursor = document.getElementById('heart-cursor');
+
+document.addEventListener('mousemove', e => {
+  heartCursor.style.left = e.clientX + 'px';
+  heartCursor.style.top  = e.clientY + 'px';
+
+  // Occasional tiny trailing hearts
+  if (Math.random() < 0.12) spawnTrailHeart(e.clientX, e.clientY);
+});
+
+function spawnTrailHeart(x, y) {
+  const trail = document.createElement('div');
+  trail.className = 'heart-trail';
+  const size = 8 + Math.random() * 10;
+  trail.style.cssText = `
+    left:${x}px; top:${y}px;
+    width:${size}px; height:${size}px;
+    opacity:0.5;
+  `;
+  trail.innerHTML = `<svg viewBox="0 0 24 24" fill="rgba(255,180,210,0.7)" width="${size}" height="${size}">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>`;
+  document.body.appendChild(trail);
+  setTimeout(() => trail.remove(), 750);
+}
 
 /* ── Check if birthday has arrived ── */
 function isBirthday() {
-  const now = new Date();
-  // Unlocks on June 27, 2026 00:00:00 local time
-  return now >= BIRTHDAY;
+  return new Date() >= BIRTHDAY;
 }
 
 /* ── Stars ── */
@@ -801,14 +845,6 @@ function createTulipsRow() {
   });
 }
 
-/* ── Custom cursor ── */
-document.addEventListener('mousemove', e => {
-  document.getElementById('cursor').style.left     = e.clientX + 'px';
-  document.getElementById('cursor').style.top      = e.clientY + 'px';
-  document.getElementById('cursor-dot').style.left = e.clientX + 'px';
-  document.getElementById('cursor-dot').style.top  = e.clientY + 'px';
-});
-
 document.addEventListener('dblclick', () => {
   if (currentPage < totalPages - 1) nextPage();
 });
@@ -835,7 +871,7 @@ function startCountdown() {
   countdownInterval = setInterval(tick, 1000);
 }
 
-/* ── Lock countdown (pages 2 & 3) ── */
+/* ── Lock countdown ── */
 function updateLockCountdown() {
   const diff = BIRTHDAY - new Date();
   if (diff <= 0) { checkAndUnlock(); return; }
@@ -848,23 +884,18 @@ function updateLockCountdown() {
 
 function checkAndUnlock() {
   if (!isBirthday()) return;
-
-  /* Unlock cake page */
   const cakeOverlay = document.getElementById('cake-lock-overlay');
   const cakeBlur    = document.getElementById('cake-blur-wrap');
   const cakeReal    = document.getElementById('cake-real-content');
   if (cakeOverlay) { cakeOverlay.style.transition='opacity 1s ease'; cakeOverlay.style.opacity='0'; setTimeout(()=>cakeOverlay.style.display='none',1000); }
   if (cakeBlur)    cakeBlur.style.display = 'none';
   if (cakeReal)    cakeReal.style.display = 'block';
-
-  /* Unlock poem page */
   const poemOverlay = document.getElementById('poem-lock-overlay');
   const poemBlur    = document.getElementById('poem-blur-wrap');
   const poemReal    = document.getElementById('poem-real-content');
   if (poemOverlay) { poemOverlay.style.transition='opacity 1s ease'; poemOverlay.style.opacity='0'; setTimeout(()=>poemOverlay.style.display='none',1000); }
   if (poemBlur)    poemBlur.style.display = 'none';
   if (poemReal)    poemReal.style.display = 'block';
-
   clearInterval(lockInterval);
 }
 
